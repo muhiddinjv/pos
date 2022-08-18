@@ -8,6 +8,8 @@ import dotenv from 'dotenv'
 
 dotenv.config();
 
+// connect with mongodb
+
 const app = express();
 
 //middlewares
