@@ -3,12 +3,17 @@ import bodyParser from 'body-parser';
 import cors from 'cors';
 import morgan from 'morgan';
 import dotenv from 'dotenv'
-// import mongoose from 'mongoose';
+import mongoose from 'mongoose';
 // require('colors');
 
 dotenv.config();
 
 // connect with mongodb
+mongoose.connect(process.env.MONGODB_URI).then(()=>{
+    console.log('connected to DB')
+}).catch((err)=>{
+    console.log(err.message);
+})
 
 const app = express();
 
