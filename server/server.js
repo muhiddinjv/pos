@@ -4,6 +4,7 @@ import cors from 'cors';
 import morgan from 'morgan';
 import dotenv from 'dotenv'
 import mongoose from 'mongoose';
+import productRouter from './routes/productsRoutes.js';
 // require('colors');
 
 dotenv.config();
@@ -25,9 +26,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(morgan('dev'));
 
 //routes
-app.get('/', (req, res) => {
-    res.send('Hello POS!')
-})
+app.use('/api/products/', productRouter)
 
 //create port
 const PORT = process.env.PORT || 5000;
