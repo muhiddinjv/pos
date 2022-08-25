@@ -11,7 +11,7 @@ export const getProductController = async (req, res) => {
 
 export const addProductController = async (req, res) => {
     try {
-        const newProducts = new Product.find();
+        const newProducts = new Product(req.body);
         await newProducts.save();
         res.status(200).send("Product created successfully!");
     } catch (error) {
