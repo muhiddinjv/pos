@@ -1,42 +1,55 @@
 import {
-    MenuFoldOutlined,
     MenuUnfoldOutlined,
-    UploadOutlined,
-    UserOutlined,
-    VideoCameraOutlined,
+    MenuFoldOutlined,
+    HomeOutlined,
+    UserSwitchOutlined,
+    MoneyCollectOutlined,
+    OrderedListOutlined,
+    ShoppingCartOutlined,
+    LogoutOutlined
   } from '@ant-design/icons';
   import { Layout, Menu } from 'antd';
-  import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+  import React, { ReactNode, useState, FC } from 'react';
+  import { useSelector } from 'react-redux';
+  import { Link } from 'react-router-dom';
   import './layout.css';
+
+  interface Props {
+    children?: ReactNode
+    // any props that come into the component
+}
   
   const { Header, Sider, Content } = Layout;
   
-  const LayoutApp: React.FC = () => {
+  const LayoutApp: FC<Props> = ({children}) => {
+    const {cartItems} = useSelector((state: any) => state.rootReducer)
     const [collapsed, setCollapsed] = useState(false);
+
+    const toggle = () => {
+      setCollapsed(!collapsed);
+    }
   
     return (
       <Layout>
         <Sider trigger={null} collapsible collapsed={collapsed}>
           <div className="logo">
-            <h2 className='logo-title' style={{color:'white'}}>MP POS</h2>
+            <h3 className='logo-title' style={{color:'white'}}>MP POS</h3>
           </div>
-          <Menu
-            theme="dark"
-            mode="inline"
-            defaultSelectedKeys={['1']}
-          >
-            <Menu.Item key={1} icon={<UserOutlined/>}>
+          <Menu theme="dark" mode="inline" defaultSelectedKeys={[window.location.pathname]}>
+            <Menu.Item key='/' icon={<HomeOutlined/>}>
               <Link to='/'>Home</Link>
             </Menu.Item>
-            <Menu.Item key='/bills' icon={<UserOutlined/>}>
-              <Link to='/'>About</Link>
+            <Menu.Item key='/bills' icon={<MoneyCollectOutlined/>}>
+              <Link to='/bills'>Bills</Link>
             </Menu.Item>
-            <Menu.Item key={3} icon={<UserOutlined/>}>
-              <Link to='/'>Help</Link>
+            <Menu.Item key='/products' icon={<OrderedListOutlined/>}>
+              <Link to='/products'>Products</Link>
             </Menu.Item>
-            <Menu.Item key={4} icon={<UserOutlined/>}>
-              <Link to='/'>Contact</Link>
+            <Menu.Item key='/customers' icon={<UserSwitchOutlined/>}>
+              <Link to='/customers'>Customers</Link>
+            </Menu.Item>
+            <Menu.Item key='/logout' icon={<LogoutOutlined/>}>
+              Logout
             </Menu.Item>
           </Menu>
         </Sider>
@@ -44,8 +57,12 @@ import { Link } from 'react-router-dom';
           <Header className="site-layout-background" style={{ padding: 0 }}>
             {React.createElement(collapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
               className: 'trigger',
-              onClick: () => setCollapsed(!collapsed),
+              onClick: toggle,
             })}
+            <div className="cart-items">
+              <ShoppingCartOutlined />
+              <div className="cart-badge">{cartItems.length}</div>
+            </div>
           </Header>
           <Content
             className="site-layout-background"
@@ -55,7 +72,7 @@ import { Link } from 'react-router-dom';
               minHeight: 280,
             }}
           >
-            Content
+            {children}
           </Content>
         </Layout>
       </Layout>

@@ -38,7 +38,7 @@ const products = [
         name:"Product 8",
         category: "pizza",
         price: 5.51,
-        image: "/images/Food/Pizza/pizza-png-19314.7png"
+        image: "/images/Food/Pizza/pizza-png-19314.png"
     },{
         name:"Product 9",
         category: "pizza",
@@ -58,7 +58,7 @@ const products = [
         name:"Product 12",
         category: "pizza",
         price: 4.73,
-        image: "/images/Food/Pizza/pizza-png-19322.3png"
+        image: "/images/Food/Pizza/pizza-png-19322.png"
     },{
         name:"Product 13",
         category: "pizza",
@@ -68,12 +68,12 @@ const products = [
         name:"Product 14",
         category: "pizza",
         price: 1.75,
-        image: "/images/Food/Pizza/pizza-png-19324.7png"
+        image: "/images/Food/Pizza/pizza-png-19324.png"
     },{
         name:"Product 15",
         category: "pizza",
         price: 7.11,
-        image: "/images/Food/Pizza/pizza-png-19325.5png"
+        image: "/images/Food/Pizza/pizza-png-19325.png"
     },{
         name:"Product 16",
         category: "pizza",
@@ -152,4 +152,4 @@ const products = [
     }
 ]
 
-module.exports = products;
+export default products;

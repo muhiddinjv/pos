@@ -8,7 +8,7 @@ const productSchema = mongoose.Schema({
 },{
     //for date
     timestamp: true
-})
+});
 
 const Product = mongoose.model("Product", productSchema);
 export default Product;

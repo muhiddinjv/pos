@@ -3,3 +3,60 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+.product-btn{
+  margin-top: 25px;
+  font-family: 'Montserrat', sans-serif;
+  width: 100%;
+}
+
+.product-btn button{
+  display: block;
+  margin: 0 auto;
+  background: #001e28;
+  color: #fff;
+  box-shadow: 0 0 5px #001e28;
+  transition: all 0.5s;
+  border: none;
+}
+
+.product-btn button:hover{
+  background-color: #fff;
+  color: #001e28;
+}
+
+.ant-layout-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cart-items{
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.ant-layout-header .anticon svg{
+  font-size: 30px;
+  vertical-align: middle;
+}
+
+.cart-items span{
+  font-size: 18px;
+}
+
+.cart-badge{
+  margin-left: 5px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  /* top: -10px;
+  right: -25px; */
+  background-color: #001e28;
+  color: #fff;
+  border-radius: 50px;
+}
