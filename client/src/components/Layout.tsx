@@ -11,7 +11,7 @@ import {
   import { Layout, Menu } from 'antd';
   import React, { ReactNode, useState, FC, useEffect } from 'react';
   import {  useSelector } from 'react-redux';
-  import { Link } from 'react-router-dom';
+  import { Link, useNavigate } from 'react-router-dom';
   import './layout.css';
 
   interface Props {
@@ -25,6 +25,7 @@ import {
     const {cartItems} = useSelector((state: any) => state.rootReducer)
     const [collapsed, setCollapsed] = useState(false);
     // const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const toggle = () => {
       setCollapsed(!collapsed);
@@ -65,7 +66,7 @@ import {
               className: 'trigger',
               onClick: toggle,
             })}
-            <div className="cart-items">
+            <div className="cart-items" onClick={()=>navigate('/cart')}>
               <ShoppingCartOutlined />
               <div className="cart-badge">{cartItems.length}</div>
             </div>

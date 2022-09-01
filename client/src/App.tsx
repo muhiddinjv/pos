@@ -3,6 +3,7 @@ import 'antd/dist/antd.min.css';
 import Home from './pages/Home';
 import Products from './pages/Products';
 import './App.css';
+import Cart from './pages/Cart';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Home />}/>
           <Route path='/products' element={<Products product={undefined} />}/>
+          <Route path='/cart' element={<Cart />}/>
         </Routes>
       </Router>
     </>
