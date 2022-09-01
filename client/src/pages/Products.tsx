@@ -1,6 +1,7 @@
 import React from 'react'
 import {Button, Card} from 'antd';
 import Meta from 'antd/lib/card/Meta';
+import { useDispatch } from 'react-redux';
 // import { EditOutlined, EllipsisOutlined, SettingOutlined } from '@ant-design/icons';
 // actions={[
 //   <SettingOutlined key="setting" />,
@@ -20,6 +21,14 @@ import Meta from 'antd/lib/card/Meta';
 // }
 
 const Products = ({product}: any) => {
+  const dispatch = useDispatch();
+  
+  const addToCart = () => {
+    dispatch({
+      type: "ADD_TO_CART",
+      payload: product
+    })
+  }
   return (
       <Card 
         hoverable
@@ -28,7 +37,7 @@ const Products = ({product}: any) => {
       >
         <Meta title={product.name} description={product.category} style={{height:'60px'}} />
         <div className="product-btn">
-          <Button>Add To Cart</Button>
+          <Button onClick={()=>addToCart()}>Add To Cart</Button>
         </div>
       </Card>
   )

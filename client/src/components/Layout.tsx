@@ -9,8 +9,8 @@ import {
     LogoutOutlined
   } from '@ant-design/icons';
   import { Layout, Menu } from 'antd';
-  import React, { ReactNode, useState, FC } from 'react';
-  import { useSelector } from 'react-redux';
+  import React, { ReactNode, useState, FC, useEffect } from 'react';
+  import {  useSelector } from 'react-redux';
   import { Link } from 'react-router-dom';
   import './layout.css';
 
@@ -24,10 +24,16 @@ import {
   const LayoutApp: FC<Props> = ({children}) => {
     const {cartItems} = useSelector((state: any) => state.rootReducer)
     const [collapsed, setCollapsed] = useState(false);
+    // const dispatch = useDispatch();
 
     const toggle = () => {
       setCollapsed(!collapsed);
     }
+
+    useEffect(() => {
+      localStorage.setItem('cartItems', JSON.stringify(cartItems));
+    }, [cartItems])
+    
   
     return (
       <Layout>
