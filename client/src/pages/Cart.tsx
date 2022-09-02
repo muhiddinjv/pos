@@ -8,12 +8,21 @@ const Cart = () => {
     const dispatch = useDispatch();
     
     const {cartItems} = useSelector((state: any) => state.rootReducer)
-    // 02:04:00
+    
     const handleIncrement = (record: any) => {
       dispatch({
-        type: "UPDATE_CART",
+        type: "UPDATE_QTY",
         payload: {...record, quantity: record.quantity + 1}
       })
+    }
+
+    const handleDecrement = (record: any) => {
+      if(record.quantity !== 1){
+        dispatch({
+          type: "UPDATE_QTY",
+          payload: {...record, quantity: record.quantity - 1}
+        })
+      }
     }
 
     const columns = [
@@ -31,7 +40,7 @@ const Cart = () => {
         title:'Quantity',
         dataIndex: '_id',
         render: (id: any, record: any) => <div>
-          <MinusCircleOutlined className='cart-minus'/>
+          <MinusCircleOutlined className='cart-minus' onClick={()=>handleDecrement(record)}/>
           <strong className='cart-quantity'>{record.quantity}</strong>
           <PlusCircleOutlined onClick={()=>handleIncrement(record)} className='cart-plus' />
         </div>

@@ -9,9 +9,12 @@ const rootReducer = (state = initialState, action) => {
             return {
                 ...state, cartItems: [...state.cartItems, action.payload]
             };
-        case "UPDATE_CART":
+        case "UPDATE_QTY":
             return {
-                ...state, cartItems: state.cartItems.map(product => product._id === action.payload._id ? {...product, quantity: action.payload.quantity} : product)
+                ...state, cartItems: state.cartItems.map(product => 
+                    product._id === action.payload._id 
+                    ? {...product, quantity: action.payload.quantity} 
+                    : product)
             }
         default: return state;
     }
