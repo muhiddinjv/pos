@@ -60,3 +60,18 @@
   color: #fff;
   border-radius: 50px;
 }
+
+.cart-minus{
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.cart-plus{
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.cart-quantity{
+  font-size: 20px;
+  vertical-align: bottom;
+}
