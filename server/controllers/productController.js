@@ -3,7 +3,6 @@ import Product from '../models/productModel.js';
 export const getProductController = async (req, res) => {
     try {
         const products = await Product.find();
-        console.log(products)
         res.status(200).send(products);
     } catch (error) {
         console.log(error);
@@ -16,6 +15,16 @@ export const addProductController = async (req, res) => {
         await newProducts.save();
         res.status(200).send("Product created successfully!");
     } catch (error) {
+        console.log(error);
+    }
+}
+
+export const updateProductController = async (req, res) => {
+    try {
+        const products = await Product.findOneAndUpdate({_id:req.body.productId}, req.body);
+        res.status(201).send('Product Updated!');
+    } catch (error) {
+        res.status(400).send(error);
         console.log(error);
     }
 }

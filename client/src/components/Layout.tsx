@@ -13,6 +13,7 @@ import {
   import {  useSelector } from 'react-redux';
   import { Link, useNavigate } from 'react-router-dom';
   import './layout.css';
+import Spinner from './Spinner';
 
   interface Props {
     children?: ReactNode
@@ -22,7 +23,7 @@ import {
   const { Header, Sider, Content } = Layout;
   
   const LayoutApp: FC<Props> = ({children}) => {
-    const {cartItems} = useSelector((state: any) => state.rootReducer)
+    const {cartItems, loading} = useSelector((state: any) => state.rootReducer)
     const [collapsed, setCollapsed] = useState(false);
     // const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -38,6 +39,7 @@ import {
   
     return (
       <Layout>
+        {loading && <Spinner />}
         <Sider trigger={null} collapsible collapsed={collapsed}>
           <div className="logo">
             <h3 className='logo-title' style={{color:'white'}}>MP POS</h3>

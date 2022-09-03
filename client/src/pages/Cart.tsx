@@ -1,7 +1,7 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { DeleteOutlined,PlusCircleOutlined,MinusCircleOutlined } from '@ant-design/icons'
-import { Layout, Table } from 'antd'
+import { Table } from 'antd'
 import LayoutApp from '../components/Layout'
 
 const Cart = () => {
@@ -9,20 +9,27 @@ const Cart = () => {
     
     const {cartItems} = useSelector((state: any) => state.rootReducer)
     
-    const handleIncrement = (record: any) => {
+    const incrementQuantity = (record: any) => {
       dispatch({
-        type: "UPDATE_QTY",
+        type: "UPDATE_CART",
         payload: {...record, quantity: record.quantity + 1}
       })
     }
 
-    const handleDecrement = (record: any) => {
-      if(record.quantity !== 1){
+    const decrementQuantity    = (record: any) => {
+      if(record.quantity !== 0){
         dispatch({
-          type: "UPDATE_QTY",
+          type: "UPDATE_CART",
           payload: {...record, quantity: record.quantity - 1}
         })
       }
+    }
+
+    const deleteFromCart = (record: any) => {
+      dispatch({
+        type: "DELETE_FROM_CART",
+        payload: record
+      })
     }
 
     const columns = [
@@ -40,14 +47,16 @@ const Cart = () => {
         title:'Quantity',
         dataIndex: '_id',
         render: (id: any, record: any) => <div>
-          <MinusCircleOutlined className='cart-minus' onClick={()=>handleDecrement(record)}/>
+          <MinusCircleOutlined className='qty-btn cart-minus' onClick={()=>decrementQuantity  (record)}/>
           <strong className='cart-quantity'>{record.quantity}</strong>
-          <PlusCircleOutlined onClick={()=>handleIncrement(record)} className='cart-plus' />
+          <PlusCircleOutlined onClick={()=>incrementQuantity(record)} className='qty-btn cart-plus' />
         </div>
       },{
         title:'Action',
         dataIndex: '_id',
-        render: (id: any, record: any) => <DeleteOutlined />
+        render: (id: any, record: any) => <DeleteOutlined className='cart-action' style={{cursor:'pointer'}} 
+          onClick={()=>deleteFromCart(record)}
+        />
       },
     ]
   return (
