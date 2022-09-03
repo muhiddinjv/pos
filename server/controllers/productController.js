@@ -21,10 +21,21 @@ export const addProductController = async (req, res) => {
 
 export const updateProductController = async (req, res) => {
     try {
-        const products = await Product.findOneAndUpdate({_id:req.body.productId}, req.body);
-        res.status(201).send('Product Updated!');
+        const products = await Product.findOneAndUpdate({_id:req.body.productId}, req.body, {new: true});
+        res.status(201).json('Product Updated!');
     } catch (error) {
         res.status(400).send(error);
         console.log(error);
     }
 }
+
+export const deleteProductController = async (req, res) => {
+    try {
+        const products = await Product.findOneAndDelete({_id:req.body.productId});
+        res.status(200).json('Product Deleted!');
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+//03:10;00

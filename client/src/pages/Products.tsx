@@ -9,7 +9,7 @@ import FormItem from 'antd/es/form/FormItem';
 
 const Products = () => {
   const dispatch = useDispatch();
-  const [productData, setProductData] = useState<any[]>([]);
+  const [productData, setProductData] = useState();
   const [popModal, setPopModal] = useState(false);
   const [editProduct, setEditProduct] = useState<any>(false);
 
@@ -25,40 +25,15 @@ const Products = () => {
   }
 
   useEffect(() => {
-    
-  
     getAllProducts()
-  }, [dispatch])
+  }, [])
 
-  const columns = [
-    {
-      title:'Name',
-      dataIndex: 'name',
-    },{
-      title: 'Image',
-      dataIndex: 'image',
-      render: (image: string | undefined, record: { name: string | undefined }) => <img src={image} alt={record.name} height={60} width={60}/>
-    },{
-      title:'Price',
-      dataIndex: 'price',
-    },{
-      title:'Action',
-      dataIndex: '_id',
-      render: (id: any, record: any) => <div>
-        <DeleteOutlined className='cart-action' style={{cursor:'pointer'}}/>
-        <EditOutlined className='cart-edit' onClick={()=>{setEditProduct(record); setPopModal(true)}}/>
-      </div>
-    },
-  ]
-  
   const handleSubmit = async (value: any) => {
-    console.log(value);
-
     if(editProduct === false){
       try{
         dispatch({ type: "SHOW_LOADING" })
-        const {data} = await axios.post('/api/products/addproducts', value);
-        message.success('Product added successfully!')
+        await axios.post('/api/products/addproducts', value);
+        message.success('Product Added successfully!')
         getAllProducts();
         setPopModal(false);
         dispatch({ type: "HIDE_LOADING" })     
@@ -80,6 +55,44 @@ const Products = () => {
       }
     }
   }
+
+  const handleDelete = async (record: any) => {
+    console.log('deleted')
+    try{
+      dispatch({ type: "SHOW_LOADING" })
+      await axios.post('/api/products/deleteproducts', {productId: record._id});
+      message.success('Product Deleted successfully!')
+      getAllProducts();
+      setPopModal(false);
+      dispatch({ type: "HIDE_LOADING" })     
+    } catch(error){
+      message.error('Error!')
+      console.log(error)
+    }
+  }
+
+  const columns = [
+    {
+      title:'Name',
+      dataIndex: 'name',
+    },{
+      title: 'Image',
+      dataIndex: 'image',
+      render: (image: string | undefined, record: { name: string | undefined; }) => <img src={image} alt={record.name} height={60} width={60}/>
+    },{
+      title:'Price',
+      dataIndex: 'price',
+    },{
+      title:'Action',
+      dataIndex: '_id',
+      render: (_id: any, record: any) => <div>
+        <DeleteOutlined className='cart-action' style={{cursor:'pointer'}} onClick={()=>handleDelete(record)}/>
+        <EditOutlined className='cart-edit' onClick={()=>{setEditProduct(record); setPopModal(true)}}/>
+      </div>
+    },
+  ]
+  
+  
 
   return (
     <LayoutApp>
