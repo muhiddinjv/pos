@@ -34,7 +34,7 @@ const Product = ({product}: any) => {
         style={{width:240, marginBottom: 20}}
         cover={<img src={product.image} alt={product.name} style={{height:200}}/>}
       >
-        <Meta title={product.name} description={product.category} style={{height:'60px'}} />
+        <Meta title={product.name} description={`$${product.price}`} style={{height:'60px'}} />
         <div className="product-btn">
           <Button onClick={()=>addToCart()}>Add To Cart</Button>
         </div>
