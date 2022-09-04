@@ -8,6 +8,19 @@ import { useDispatch } from 'react-redux';
 const Home = () => {
   const dispatch = useDispatch();
   const [productData, setProductData] = useState<any[]>([])
+  const [selectedCategory, setSelectedCategory] = useState('pizzas');
+  const categories = [
+    {
+      name: "pizzas",
+      imgUrl: "/images/Food/Pizza/Pepperoni-Pizza-Transparent-PNG.png",
+    },{
+      name: "burgers",
+      imgUrl: "/images/Food/Burgers/Bacon-Cheese-Burger-PNG-Pic.png",
+    },{
+      name: "drinks",
+      imgUrl: "/images/Drink/1-2-drink-png-12.png",
+    }
+  ]
   
   useEffect(() => {
     const getAllProducts = async () => {
@@ -26,10 +39,20 @@ const Home = () => {
   
   return (
     <LayoutApp>
+      <div className="category">
+        {categories.map(category => (
+          <div key={category.name} className={`category-flex ${selectedCategory === category.name && 'category-active'}`}
+          onClick={()=>setSelectedCategory(category.name)}
+          >
+            <h3 className="category-name">{category.name}</h3>
+            <img src={category.imgUrl} alt={category.name} width={60} height={60} />
+          </div>
+        ))}
+      </div>
       <Row>
-        {productData.map(product=>(
+        {productData.filter(i=>i.category === selectedCategory).map(product=>(
           <Col key={product._id} xs={24} sm={6} md={12} lg={6}>
-            <Product product={product} />
+            <Product key={product.id} product={product} />
           </Col>
         ))}
       </Row>
