@@ -1,11 +1,26 @@
-import { Button, Form, Input, Select } from 'antd'
+import { Button, Form, Input, message } from 'antd'
 import FormItem from 'antd/es/form/FormItem'
+import axios from 'axios'
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { Link, useNavigate } from 'react-router-dom'
 
 const Login = () => {
-    const handleSubmit = (value: any) => {
-        console.log(value);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+    const handleSubmit = async (value: any) => {
+        // console.log(value);
+        try{
+          dispatch({ type: "SHOW_LOADING" })
+          await axios.post('/api/users/login');
+          message.success('User Login successful!')
+          navigate('/');
+          dispatch({ type: "HIDE_LOADING" })     
+        } catch(error){
+          message.error('Error!')
+          console.log(error)
+        }
     }
   return (
     <div className='form'>

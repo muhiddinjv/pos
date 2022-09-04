@@ -5,6 +5,7 @@ import morgan from 'morgan';
 import dotenv from 'dotenv'
 import mongoose from 'mongoose';
 import productRouter from './routes/productsRoutes.js';
+import userRouter from './routes/userRoutes.js';
 // require('colors');
 
 dotenv.config();
@@ -26,7 +27,8 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(morgan('dev'));
 
 //routes
-app.use('/api/products/', productRouter)
+app.use('/api/products/', productRouter);
+app.use('/api/users/', userRouter);
 
 //create port
 const PORT = process.env.PORT || 5000;
