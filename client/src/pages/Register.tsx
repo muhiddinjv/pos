@@ -1,18 +1,40 @@
-import { Button, Form, Input, Select } from 'antd'
+import { Button, Form, Input, message } from 'antd'
 import FormItem from 'antd/es/form/FormItem'
-import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import axios from 'axios'
+import { useEffect } from 'react'
 
 const Register = () => {
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
 
-    const handleSubmit = (value: any) => {
-        console.log(value);
+    const handleSubmit = async (value: any) => {
+      console.log(value);
+      try{
+        dispatch({ type: "SHOW_LOADING" })
+        await axios.post('/api/users/register', value);
+        message.success('Registered successfully!');
+        navigate('/login');
+        dispatch({ type: "HIDE_LOADING" });     
+      } catch(error){
+        message.error('Error!');
+        console.log(error);
+      }
     }
+
+    useEffect(() => {
+      if(localStorage.getItem("auth")){
+        localStorage.getItem("auth")
+        navigate('/')
+      }
+    }, [navigate])
+    
   return (
     <div className='form'>
-        <h2>MP POS</h2>
-        <p>Register</p>
-        <div className="form-group">
+      <h2>MP POS</h2>
+      <p>Register</p>
+      <div className="form-group">
         <Form layout='vertical' onFinish={handleSubmit}>
             <FormItem name='name' label='Name'>
               <Input type='text'/>
@@ -27,8 +49,8 @@ const Register = () => {
               <Button htmlType='submit' className='add-new'>Register</Button>
               <Link className='form-other' to='/login'>Login Here!</Link>
             </div>
-          </Form>
-        </div>
+        </Form>
+      </div>
     </div>
   )
 }

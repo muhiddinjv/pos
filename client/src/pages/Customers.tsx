@@ -7,5 +7,3 @@ const Customers = () => {
 }
 
 export default Customers
-
-//1:18:27 video stopped
