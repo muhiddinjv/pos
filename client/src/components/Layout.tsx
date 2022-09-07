@@ -42,7 +42,7 @@ import Spinner from './Spinner';
         {loading && <Spinner />}
         <Sider trigger={null} collapsible collapsed={collapsed}>
           <div className="logo">
-            <h3 className='logo-title' style={{color:'white'}}>MP POS</h3>
+            <h2 className='logo-title'>MP POS</h2>
           </div>
           <Menu theme="dark" mode="inline" defaultSelectedKeys={[window.location.pathname]}>
             <Menu.Item key='/' icon={<HomeOutlined/>}>

@@ -1,12 +1,15 @@
-import axios from 'axios'
-import React, { useEffect, useState } from 'react'
+import axios from 'axios';
+import React, { useEffect, useState, useRef } from 'react';
+import ReacToPrint, { useReactToPrint } from 'react-to-print';
 import { useDispatch } from 'react-redux';
 import LayoutApp from '../components/Layout';
 import { EyeOutlined } from '@ant-design/icons'
 import { Button, Modal, Table } from 'antd';
+import ReactToPrint from 'react-to-print';
 
 const Bills = () => {
   const dispatch = useDispatch();
+  const componentRef = useRef<any>();
   const [billsData, setBillsData] = useState([]);
   const [popModal, setPopModal] = useState(false);
   const [seletedBill, setSeletedBill] = useState<any>(false);
@@ -59,6 +62,10 @@ const Bills = () => {
     },
   ]
 
+  const handlePrint = useReactToPrint({
+    content: () => componentRef.current,
+  })
+
 
 
   return (
@@ -68,7 +75,7 @@ const Bills = () => {
       <Table dataSource={billsData} columns={columns} bordered/>
       {popModal && 
         <Modal title='Invoice Details' width={400} visible={popModal} onCancel={()=>{setPopModal(false)}} footer={false}>
-          <div className="card">
+          <div className="card" ref={componentRef}>
             <div className="card-header">
               <h2 className="logo">MP POS</h2>
               <span>Number: <b>+998935399093</b></span>
@@ -129,9 +136,14 @@ const Bills = () => {
               </div>
             </div>
           </div>
+          <div className="form-btn-add">
+            <Button onClick={handlePrint} htmlType='submit' className='add-new print'>Print</Button>
+          </div>
         </Modal>}
     </LayoutApp>
   )
 }
+
+//5:13
 
 export default Bills

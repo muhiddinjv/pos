@@ -86,6 +86,7 @@ const Cart = () => {
         }
         await axios.post('/api/bills/addbills', newObject);
         message.success('Bill Generated!');
+        localStorage.removeItem(cartItems);
         navigate('/bills');
       } catch (error) {
         message.error('Error!');
