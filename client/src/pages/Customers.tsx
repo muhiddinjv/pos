@@ -1,8 +1,11 @@
 import React from 'react'
+import LayoutApp from '../components/Layout'
 
 const Customers = () => {
   return (
-    <div>Customers</div>
+    <LayoutApp>
+      <div>Customers</div>
+    </LayoutApp>
   )
 }
 

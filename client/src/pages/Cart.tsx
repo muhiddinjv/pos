@@ -80,7 +80,7 @@ const Cart = () => {
       try {
         const newObject = {
           ...value, cartItems, subTotal,
-          tax: Number((subTotal.toFixed(2))),
+          tax: Number(((subTotal / 100) * 10).toFixed(2)),
           totalAmount: Number((Number(subTotal) + Number(((subTotal / 100) * 10).toFixed(2))).toFixed(2)),
           userId: JSON.parse(localStorage.getItem('auth') || '{}')._id,
         }
@@ -121,8 +121,8 @@ const Cart = () => {
               </Select>
             </FormItem>
             <div className="total">
+              <span>Tax: ${((subTotal / 100) * 10).toFixed(2)}</span><br />
               <span>SubTotal: ${(subTotal.toFixed(2))}</span>
-              <span>Tax: ${((subTotal / 100) * 10).toFixed(2)}</span>
               <h3>Total: ${(Number(subTotal) + Number(((subTotal / 100) * 10).toFixed(2))).toFixed(2)}</h3>
             </div>
             <div className="form-btn-add">

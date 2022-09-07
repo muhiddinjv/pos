@@ -6,6 +6,8 @@ import './App.css';
 import Cart from './pages/Cart';
 import Login from './pages/Login';
 import Register from './pages/Register';
+import Bills from './pages/Bills';
+import Customers from './pages/Customers';
 
 function App() {
   return (
@@ -14,7 +16,9 @@ function App() {
         <Routes>
           <Route path='/' element={<Home />}/>
           <Route path='/products' element={<Products />}/>
+          <Route path='/customers' element={<Customers />}/>
           <Route path='/cart' element={<Cart />}/>
+          <Route path='/bills' element={<Bills />}/>
           <Route path='/login' element={<Login />}/>
           <Route path='/register' element={<Register />}/>
         </Routes>
