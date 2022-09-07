@@ -9,7 +9,7 @@ const billsSchema = mongoose.Schema({
     paymentMethod: { type: String, required: true },
     cartItems: { type: Array, required: true },
 },{
-    timestamp: true
+    timestamps: true
 });
 
 const Bills = mongoose.model("Bills", billsSchema);

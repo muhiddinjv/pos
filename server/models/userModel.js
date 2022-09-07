@@ -7,7 +7,7 @@ const userSchema = mongoose.Schema({
     verified: { type: Boolean }
 },{
     //for date
-    timestamp: true
+    timestamps: true
 });
 
 const User = mongoose.model("User", userSchema);
