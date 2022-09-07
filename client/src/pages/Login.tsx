@@ -28,7 +28,7 @@ const Login = () => {
       localStorage.getItem("auth")
       navigate('/')
     }
-  }, [navigate])
+  }, [navigate]) //04;04:00
   
   
   return (

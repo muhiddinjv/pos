@@ -1,11 +1,18 @@
-import React from 'react'
+import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { DeleteOutlined,PlusCircleOutlined,MinusCircleOutlined } from '@ant-design/icons'
-import { Table } from 'antd'
+import { Button, Form, Input, message, Modal, Select, Table } from 'antd'
 import LayoutApp from '../components/Layout'
+import FormItem from 'antd/es/form/FormItem'
+import { useNavigate } from 'react-router-dom'
+import axios from 'axios'
 
 const Cart = () => {
+    const [subTotal, setSubTotal] = useState(0);
+    const [billPopUp, setBillPopUp] = useState(false);
+
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     
     const {cartItems} = useSelector((state: any) => state.rootReducer)
     
@@ -59,10 +66,70 @@ const Cart = () => {
         />
       },
     ]
+
+    useEffect(() => {
+      let temp = 0;
+      cartItems.forEach((product: any) => (temp = temp + product.price * product.quantity))
+      setSubTotal(temp);
+    }, [cartItems])
+
+
+    const handleSubmit = async (value: any) => {
+      console.log('value :>> ', value);
+
+      try {
+        const newObject = {
+          ...value, cartItems, subTotal,
+          tax: Number((subTotal.toFixed(2))),
+          totalAmount: Number((Number(subTotal) + Number(((subTotal / 100) * 10).toFixed(2))).toFixed(2)),
+          userId: JSON.parse(localStorage.getItem('auth') || '{}')._id,
+        }
+        await axios.post('/api/bills/addbills', newObject);
+        message.success('Bill Generated!');
+        navigate('/bills');
+      } catch (error) {
+        message.error('Error!');
+        console.log(error);
+      }
+
+    }
+    
   return (
     <LayoutApp>
       <h2>Cart</h2>
       <Table dataSource={cartItems} columns={columns} bordered/>
+      <div className="sub-total">
+        <h2>Sub Total: <span>${(subTotal).toFixed(2)}</span></h2>
+        <button className="add-new" onClick={()=>setBillPopUp(true)}>Create Invoice</button>
+      </div>
+      <Modal title="Create Invoice" visible={billPopUp} onCancel={()=>setBillPopUp(false)} footer={false}>
+      <Form layout='vertical' onFinish={handleSubmit}>
+            <FormItem name='customerName' label='Customer Name'>
+              <Input />
+            </FormItem>
+            <FormItem name='customerPhone' label='Customer Phone'>
+              <Input />
+            </FormItem>
+            <FormItem name='customerAdress' label='Customer Adress'>
+              <Input />
+            </FormItem>
+            <FormItem name='paymentMethod' label='Payment Method'>
+              <Select>
+                <Select.Option value='cash'>Cash</Select.Option>
+                <Select.Option value='paypal'>Paypal</Select.Option>
+                <Select.Option value='card'>Card</Select.Option>
+              </Select>
+            </FormItem>
+            <div className="total">
+              <span>SubTotal: ${(subTotal.toFixed(2))}</span>
+              <span>Tax: ${((subTotal / 100) * 10).toFixed(2)}</span>
+              <h3>Total: ${(Number(subTotal) + Number(((subTotal / 100) * 10).toFixed(2))).toFixed(2)}</h3>
+            </div>
+            <div className="form-btn-add">
+              <Button htmlType='submit' className='add-new'>Generate Invoice</Button>
+            </div>
+          </Form>
+      </Modal>
     </LayoutApp>
   )
 }
