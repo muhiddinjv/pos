@@ -1,15 +1,5 @@
 [
     {
-        "name":"Product 1",
-        "category": "pizzas",
-        "price": 2.32,
-        "image": "/images/Food/Pizza/Cheese-Pizza-PNG-Clipart.png"
-    },{
-        "name":"Product 2",
-        "category": "pizzas",
-        "price": 2.31,
-        "image": "/images/Food/Pizza/Cheese-Pizza-PNG-Image.png"
-    },{
         "name":"Product 3",
         "category": "pizzas",
         "price": 3,
@@ -151,18 +141,103 @@
         "image": "/images/Food/Burgers/Bacon-Cheese-Burger-PNG-Pic.png"
     },{
         "name":"Product 31",
+        "category": "burgers",
+        "price": 8,
+        "image": "/images/Food/Burgers/burger-10914.png"
+    },{
+        "name":"Product 32",
+        "category": "burgers",
+        "price": 9.50,
+        "image": "/images/Food/Burgers/burger-10933.png"
+    },{
+        "name":"Product 33",
+        "category": "burgers",
+        "price": 10.20,
+        "image": "/images/Food/Burgers/burger-10953.png"
+    },{
+        "name":"Product 34",
+        "category": "burgers",
+        "price": 11.10,
+        "image": "/images/Food/Burgers/burger-10966.png"
+    },{
+        "name":"Product 35",
+        "category": "burgers",
+        "price": 12,
+        "image": "/images/Food/Burgers/burger-10967.png"
+    },{
+        "name":"Product 36",
+        "category": "burgers",
+        "price": 10,
+        "image": "/images/Food/Burgers/burger-10968.png"
+    },{
+        "name":"Product 37",
+        "category": "burgers",
+        "price": 11.40,
+        "image": "/images/Food/Burgers/burger-10970.png"
+    },{
+        "name":"Product 38",
+        "category": "burgers",
+        "price": 12.30,
+        "image": "/images/Food/Burgers/burger-10972.png"
+    },{
+        "name":"Product 38",
         "category": "drinks",
         "price": 4.2,
         "image": "/images/Drink/1-2-drink-png-12.png"
     },{
-        "name":"Product 32",
-        "category": "drinks",
-        "price": 8.8,
-        "image": "/images/Drink/2-2-drink-png-10.png"
-    },{
-        "name":"Product 33",
+        "name":"Product 39",
         "category": "drinks",
         "price": 3.5,
+        "image": "/images/Drink/10-2-drink-png-7.png"
+    },{
+        "name":"Product 40",
+        "category": "drinks",
+        "price": 11.50,
+        "image": "/images/Drink/54475-8-ice-milk-picture-free-hq-image.png"
+    },{
+        "name":"Product 41",
+        "category": "drinks",
+        "price": 12,
+        "image": "/images/Drink/2-2-drink-png-10.png"
+    },{
+        "name":"Product 42",
+        "category": "drinks",
+        "price": 13.50,
         "image": "/images/Drink/3-2-drink-png-11.png"
+    },{
+        "name":"Product 43",
+        "category": "drinks",
+        "price": 14,
+        "image": "/images/Drink/4-2-drink-png.png"
+    },{
+        "name":"Product 44",
+        "category": "drinks",
+        "price": 15.50,
+        "image": "/images/Drink/5-2-drink-png-8.png"
+    },{
+        "name":"Product 45",
+        "category": "drinks",
+        "price": 16,
+        "image": "/images/Drink/6-2-drink-png-9.png"
+    },{
+        "name":"Product 46",
+        "category": "drinks",
+        "price": 17.10,
+        "image": "/images/Drink/12-2-drink-png-5.png"
+    },{
+        "name":"Product 47",
+        "category": "drinks",
+        "price": 18,
+        "image": "/images/Drink/7-2-drink-png-2.png"
+    },{
+        "name":"Product 48",
+        "category": "drinks",
+        "price": 19.20,
+        "image": "/images/Drink/8-2-drink-png-3.png"
+    },{
+        "name":"Product 49",
+        "category": "drinks",
+        "price": 20,
+        "image": "/images/Drink/9-2-drink-png-6.png"
     }
 ]

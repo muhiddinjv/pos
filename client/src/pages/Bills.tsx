@@ -1,11 +1,10 @@
 import axios from 'axios';
-import React, { useEffect, useState, useRef } from 'react';
-import ReacToPrint, { useReactToPrint } from 'react-to-print';
+import { useEffect, useState, useRef } from 'react';
+import { useReactToPrint } from 'react-to-print';
 import { useDispatch } from 'react-redux';
 import LayoutApp from '../components/Layout';
 import { EyeOutlined } from '@ant-design/icons'
 import { Button, Modal, Table } from 'antd';
-import ReactToPrint from 'react-to-print';
 
 const Bills = () => {
   const dispatch = useDispatch();
@@ -143,7 +142,5 @@ const Bills = () => {
     </LayoutApp>
   )
 }
-
-//5:13
 
 export default Bills

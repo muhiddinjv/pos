@@ -1,5 +1,5 @@
 import axios from 'axios'
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux';
 import LayoutApp from '../components/Layout';
 import { DeleteOutlined,EditOutlined } from '@ant-design/icons'
@@ -57,7 +57,6 @@ const Products = () => {
   }
 
   const handleDelete = async (record: any) => {
-    console.log('deleted')
     try{
       dispatch({ type: "SHOW_LOADING" })
       await axios.post('/api/products/deleteproducts', {productId: record._id});

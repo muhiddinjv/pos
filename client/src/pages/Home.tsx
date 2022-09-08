@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import LayoutApp from '../components/Layout'
 import {Row, Col} from 'antd';
 import Product from '../components/Product';

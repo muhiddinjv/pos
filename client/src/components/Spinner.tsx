@@ -1,5 +1,3 @@
-import React from 'react'
-// 02:27:00
 const Spinner = () => {
   return (
     <div className='spinner'>

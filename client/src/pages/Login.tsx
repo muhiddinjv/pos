@@ -13,7 +13,7 @@ const Login = () => {
     try{
       dispatch({ type: "SHOW_LOADING" })
       const res = await axios.post('/api/users/login', value);
-      message.success('User Logged In Successfully!')
+      message.success('Logged In Successfully!')
       localStorage.setItem("auth", JSON.stringify(res.data))
       navigate('/');
       dispatch({ type: "HIDE_LOADING" })     
@@ -28,7 +28,7 @@ const Login = () => {
       localStorage.getItem("auth")
       navigate('/')
     }
-  }, [navigate]) //04;04:00
+  }, [navigate])
   
   
   return (

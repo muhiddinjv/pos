@@ -10,7 +10,6 @@ const Register = () => {
     const navigate = useNavigate();
 
     const handleSubmit = async (value: any) => {
-      console.log(value);
       try{
         dispatch({ type: "SHOW_LOADING" })
         await axios.post('/api/users/register', value);

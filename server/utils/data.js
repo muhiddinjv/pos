@@ -1,15 +1,5 @@
 const products = [
     {
-        name:"Product 1",
-        category: "pizzas",
-        price: 2.32,
-        image: "/images/Food/Pizza/Cheese-Pizza-PNG-Clipart.png"
-    },{
-        name:"Product 2",
-        category: "pizzas",
-        price: 2.31,
-        image: "/images/Food/Pizza/Cheese-Pizza-PNG-Image.png"
-    },{
         name:"Product 3",
         category: "pizzas",
         price: 3,
@@ -132,28 +122,103 @@ const products = [
     },{
         name:"Product 27",
         category: "burgers",
-        price: 9,
+        price: 1.50,
         image: "/images/Food/Burgers/Bacon-Cheese-Burger-PNG-Clipart.png"
     },{
         name:"Product 28",
         category: "burgers",
-        price: 6.5,
+        price: 2,
         image: "/images/Food/Burgers/Bacon-Cheese-Burger-PNG-File.png"
     },{
         name:"Product 29",
         category: "burgers",
-        price: 7.3,
+        price: 3.50,
         image: "/images/Food/Burgers/Bacon-Cheese-Burger-PNG-Photos.png"
     },{
         name:"Product 30",
         category: "burgers",
-        price: 8,
+        price: 4,
         image: "/images/Food/Burgers/Bacon-Cheese-Burger-PNG-Pic.png"
     },{
         name:"Product 31",
+        category: "burgers",
+        price: 5.50,
+        image: "/images/Food/Burgers/Bacon-Cheese-Burger-PNG-Transparent-Image.png"
+    },{
+        name:"Product 32",
+        category: "burgers",
+        price: 6,
+        image: "/images/Food/Burgers/Bacon-Cheese-Burger-Transparent-Background.png"
+    },{
+        name:"Product 33",
+        category: "burgers",
+        price: 7.50,
+        image: "/images/Food/Burgers/Bacon-Cheese-Burger-Transparent-PNG.png"
+    },{
+        name:"Product 34",
+        category: "burgers",
+        price: 8,
+        image: "/images/Food/Burgers/burger-10914.png"
+    },{
+        name:"Product 35",
+        category: "burgers",
+        price: 9.50,
+        image: "/images/Food/Burgers/burger-10933.png"
+    },{
+        name:"Product 36",
+        category: "burgers",
+        price: 10,
+        image: "/images/Food/Burgers/burger-10953.png"
+    },{
+        name:"Product 37",
         category: "drinks",
-        price: 1.1,
+        price: 11.50,
         image: "/images/Drink/1-2-drink-png-12.png"
+    },{
+        name:"Product 38",
+        category: "drinks",
+        price: 12,
+        image: "/images/Drink/2-2-drink-png-10.png"
+    },{
+        name:"Product 39",
+        category: "drinks",
+        price: 13.50,
+        image: "/images/Drink/3-2-drink-png-11.png"
+    },{
+        name:"Product 40",
+        category: "drinks",
+        price: 14,
+        image: "/images/Drink/4-2-drink-png.png"
+    },{
+        name:"Product 41",
+        category: "drinks",
+        price: 15.50,
+        image: "/images/Drink/5-2-drink-png-8.png"
+    },{
+        name:"Product 42",
+        category: "drinks",
+        price: 16,
+        image: "/images/Drink/6-2-drink-png-9.png"
+    },{
+        name:"Product 43",
+        category: "drinks",
+        price: 17.10,
+        image: "/images/Drink/6-2-drink-png-9.png"
+    },{
+        name:"Product 44",
+        category: "drinks",
+        price: 18,
+        image: "/images/Drink/7-2-drink-png-2.png"
+    },{
+        name:"Product 45",
+        category: "drinks",
+        price: 19.20,
+        image: "/images/Drink/8-2-drink-png-3.png"
+    },{
+        name:"Product 46",
+        category: "drinks",
+        price: 20,
+        image: "/images/Drink/9-2-drink-png-6.png"
     }
 ]
 
