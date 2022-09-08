@@ -40,11 +40,10 @@ const Customers = () => {
     }
   ]
 
-  
   return (
     <LayoutApp>
       <h2>All Customers</h2>
-      <Table dataSource={billsData} columns={columns} bordered/>
+      <Table dataSource={billsData} columns={columns} bordered scroll={{ x: true }}/>
     </LayoutApp>
   )
 }

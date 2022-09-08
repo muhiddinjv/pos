@@ -135,7 +135,6 @@
   box-shadow: 0 0 5px #001e28 !important;
   transition: all 0.5s;
   border: none !important;
-  /* margin-bottom: 15px; */
 }
 
 .add-new:hover{
@@ -145,6 +144,7 @@
 
 .category{
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   margin-bottom: 50px;
 }

@@ -17,7 +17,6 @@ import Spinner from './Spinner';
 
   interface Props {
     children?: ReactNode
-    // any props that come into the component
 }
   
   const { Header, Sider, Content } = Layout;
@@ -25,7 +24,6 @@ import Spinner from './Spinner';
   const LayoutApp: FC<Props> = ({children}) => {
     const {cartItems, loading} = useSelector((state: any) => state.rootReducer)
     const [collapsed, setCollapsed] = useState(false);
-    // const dispatch = useDispatch();
     const navigate = useNavigate();
 
     const toggle = () => {

@@ -49,9 +49,9 @@ const Home = () => {
           </div>
         ))}
       </div>
-      <Row>
+      <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }} justify="center">
         {productData.filter(i=>i.category === selectedCategory).map(product=>(
-          <Col key={product._id} xs={24} sm={6} md={12} lg={6}>
+          <Col key={product._id} >
             <Product key={product.id} product={product} />
           </Col>
         ))}

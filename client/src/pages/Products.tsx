@@ -97,7 +97,7 @@ const Products = () => {
     <LayoutApp>
       <h2>All Products</h2>
       <Button className='add-new' onClick={()=>setPopModal(true)}>Add New</Button>
-      <Table dataSource={productData} columns={columns} bordered/>
+      <Table rowKey={Math.random().toString()} dataSource={productData} columns={columns} bordered scroll={{ x: true }}/>
       {popModal && 
         <Modal title={`${editProduct !== false ? 'Edit Product' : 'Add New Product'}`} 
         visible={popModal} onCancel={()=>{setEditProduct(false); setPopModal(false)}} footer={false}>

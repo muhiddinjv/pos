@@ -98,7 +98,7 @@ const Cart = () => {
   return (
     <LayoutApp>
       <h2>Cart</h2>
-      <Table dataSource={cartItems} columns={columns} bordered/>
+      <Table dataSource={cartItems} columns={columns} bordered scroll={{ x: true }}/>
       <div className="sub-total">
         <h2>Sub Total: <span>${(subTotal).toFixed(2)}</span></h2>
         <button className="add-new" onClick={()=>setBillPopUp(true)}>Create Invoice</button>

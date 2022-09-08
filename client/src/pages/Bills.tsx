@@ -71,7 +71,7 @@ const Bills = () => {
     <LayoutApp>
       <h2>All Invoices</h2>
       <Button className='add-new' onClick={()=>setPopModal(true)}>Add New</Button>
-      <Table dataSource={billsData} columns={columns} bordered/>
+      <Table dataSource={billsData} columns={columns} bordered scroll={{ x: true }}/>
       {popModal && 
         <Modal title='Invoice Details' width={400} visible={popModal} onCancel={()=>{setPopModal(false)}} footer={false}>
           <div className="card" ref={componentRef}>
@@ -106,7 +106,7 @@ const Bills = () => {
               <div className="card-footer">
                 <h4>Your Order</h4>
                 {seletedBill.cartItems.map((product: any)=>(
-                  <>
+                  <div key={Math.random().toString()}>
                     <div className="footer-card">
                       <div className="group">
                         <span>Product:</span>
@@ -121,7 +121,7 @@ const Bills = () => {
                         <span><b>${product.price}</b></span>
                       </div>
                     </div>
-                  </>
+                  </div>
                 ))}
                 <div className="footer-card_total">
                   <div className="group">

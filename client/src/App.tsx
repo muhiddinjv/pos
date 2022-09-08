@@ -14,10 +14,22 @@ function App() {
     <>
       <Router>
         <Routes>
-          <Route path='/' element={<Home />}/>
-          <Route path='/products' element={<Products />}/>
+          <Route path='/' element={
+          <ProtectedRouter>
+            <Home />
+          </ProtectedRouter>
+          }/>
+          <Route path='/products' element={
+            <ProtectedRouter>
+              <Products />
+            </ProtectedRouter>
+          }/>
           <Route path='/customers' element={<Customers />}/>
-          <Route path='/cart' element={<Cart />}/>
+          <Route path='/cart' element={
+            <ProtectedRouter>
+              <Products />
+            </ProtectedRouter>
+          }/>
           <Route path='/bills' element={<Bills />}/>
           <Route path='/login' element={<Login />}/>
           <Route path='/register' element={<Register />}/>

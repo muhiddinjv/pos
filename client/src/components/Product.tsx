@@ -14,7 +14,7 @@ const Product = ({product}: any) => {
   return (
       <Card 
         hoverable
-        style={{width:240, marginBottom: 20}}
+        style={{width:220, marginBottom: 20}}
         cover={<img src={product.image} alt={product.name} style={{height:200}}/>}
       >
         <Meta title={product.name} description={`$${product.price}`} style={{height:'60px'}} />
