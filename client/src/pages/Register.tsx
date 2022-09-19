@@ -38,8 +38,8 @@ const Register = () => {
             <FormItem name='name' label='Name'>
               <Input type='text'/>
             </FormItem>
-            <FormItem name='userId' label='User ID'>
-              <Input type='text'/>
+            <FormItem name='userId' label='Email'>
+              <Input type='email'/>
             </FormItem>
             <FormItem name='password' label='Password'>
               <Input type='password' />

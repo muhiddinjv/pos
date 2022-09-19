@@ -37,5 +37,3 @@ export const deleteProductController = async (req, res) => {
         console.log(error);
     }
 }
-
-//03:10;00
