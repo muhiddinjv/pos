@@ -4,10 +4,10 @@ import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
+import Validate from './Validate'
 
 const Login = () => {
-  const [isValid, setIsValid] = useState(false);
-  const [messages, setMessages] = useState('');
+ 
   
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -34,18 +34,7 @@ const Login = () => {
   }, [navigate]);
 
   
-  const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   
-  const validateEmail = (event: any) => {
-    const email = event.target.value;
-    if (emailRegex.test(email)) {
-      setIsValid(true);
-      setMessages('Your email looks good!');
-    } else {
-      setIsValid(false);
-      setMessages('Please enter a valid email!');
-    }
-  };
   
   return (
     <div className='form'>
@@ -54,10 +43,7 @@ const Login = () => {
       <div className="form-group">
       <Form layout='vertical' onFinish={handleSubmit}>
           <FormItem name='userId' label='Email'>
-            <Input type='email' onChange={validateEmail}/>
-            <div className={`message ${isValid ? 'success' : 'error'}`}>
-              {messages}
-            </div>
+            <Validate />
           </FormItem>
           <FormItem name='password' label='Password'>
             <Input type='password' />

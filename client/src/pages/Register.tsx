@@ -3,32 +3,33 @@ import FormItem from 'antd/es/form/FormItem'
 import { Link, useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import axios from 'axios'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
+import Validate from './Validate'
 
-const Register = () => {
-    const dispatch = useDispatch();
-    const navigate = useNavigate();
+const Register = () => {  
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-    const handleSubmit = async (value: any) => {
-      try{
-        dispatch({ type: "SHOW_LOADING" })
-        await axios.post('/api/users/register', value);
-        message.success('Registered successfully!');
-        navigate('/login');
-        dispatch({ type: "HIDE_LOADING" });     
-      } catch(error){
-        message.error('Error!');
-        console.log(error);
-      }
+  const handleSubmit = async (value: any) => {
+    try{
+      dispatch({ type: "SHOW_LOADING" })
+      await axios.post('/api/users/register', value);
+      message.success('Registered successfully!');
+      navigate('/login');
+      dispatch({ type: "HIDE_LOADING" });     
+    } catch(error){
+      message.error('Error!');
+      console.log(error);
     }
+  }
 
-    useEffect(() => {
-      if(localStorage.getItem("auth")){
-        localStorage.getItem("auth")
-        navigate('/')
-      }
-    }, [navigate])
-    
+  useEffect(() => {
+    if(localStorage.getItem("auth")){
+      localStorage.getItem("auth")
+      navigate('/')
+    }
+  }, [navigate]);
+  
   return (
     <div className='form'>
       <h2>MP POS</h2>
@@ -39,7 +40,7 @@ const Register = () => {
               <Input type='text'/>
             </FormItem>
             <FormItem name='userId' label='Email'>
-              <Input type='email'/>
+              <Validate />
             </FormItem>
             <FormItem name='password' label='Password'>
               <Input type='password' />

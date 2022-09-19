@@ -281,3 +281,11 @@
   color: #001e28;
   margin-bottom: 20px;
 }
+
+.email.success{
+  color: green;
+}
+
+.email.error{
+  color: red;
+}
