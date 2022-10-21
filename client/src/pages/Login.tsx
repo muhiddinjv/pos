@@ -4,11 +4,9 @@ import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
-import Validate from './Validate'
+// import Validate from './Validate'
 
 const Login = () => {
- 
-  
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -32,9 +30,6 @@ const Login = () => {
       navigate('/')
     }
   }, [navigate]);
-
-  
-  
   
   return (
     <div className='form'>
@@ -42,11 +37,12 @@ const Login = () => {
       <p>Login</p>
       <div className="form-group">
       <Form layout='vertical' onFinish={handleSubmit}>
-          <FormItem name='userId' label='Email'>
-            <Validate />
+          <FormItem name='userId' label='User ID'>
+            <Input type='number' required/>
+            {/* <Validate /> */}
           </FormItem>
           <FormItem name='password' label='Password'>
-            <Input type='password' />
+            <Input type='password' required/>
           </FormItem>
           <div className="form-btn-add">
             <Button htmlType='submit' className='add-new'>Login</Button>

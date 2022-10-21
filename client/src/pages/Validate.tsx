@@ -22,7 +22,7 @@ const Validate = () => {
     
     return (
         <>
-            <Input type='email' onChange={validateEmail}/>
+            <Input type='email' onChange={validateEmail} required/>
             <div className={`email ${isValid ? 'success' : 'error'}`}>
                 {messages}
             </div>

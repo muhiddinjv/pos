@@ -1,5 +1,8 @@
-import express from 'express';
-import { addBillsController,getBillsController } from '../controllers/billsController.js';
+import express from "express";
+import {
+  addBillsController,
+  getBillsController,
+} from "../controllers/billsController.js";
 
 const billsRouter = express.Router();
 

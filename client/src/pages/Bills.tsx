@@ -11,7 +11,7 @@ const Bills = () => {
   const componentRef = useRef<any>();
   const [billsData, setBillsData] = useState([]);
   const [popModal, setPopModal] = useState(false);
-  const [seletedBill, setSeletedBill] = useState<any>(false);
+  const [selectedBill, setSelectedBill] = useState<any>(false);
   
   const getAllBills = async () => {
     try{
@@ -56,7 +56,7 @@ const Bills = () => {
       title:'Action',
       dataIndex: '_id',
       render: (_id: any, record: any) => <div>
-        <EyeOutlined className='cart-edit eye' onClick={()=>{setSeletedBill(record); setPopModal(true)}}/>
+        <EyeOutlined className='cart-edit eye' onClick={()=>{setSelectedBill(record); setPopModal(true)}}/>
       </div>
     },
   ]
@@ -70,7 +70,7 @@ const Bills = () => {
   return (
     <LayoutApp>
       <h2>All Invoices</h2>
-      <Button className='add-new' onClick={()=>setPopModal(true)}>Add New</Button>
+      {/* <Button className='add-new' onClick={()=>setPopModal(true)}>Add New</Button> */}
       <Table dataSource={billsData} columns={columns} bordered scroll={{ x: true }}/>
       {popModal && 
         <Modal title='Invoice Details' width={400} visible={popModal} onCancel={()=>{setPopModal(false)}} footer={false}>
@@ -83,29 +83,29 @@ const Bills = () => {
             <div className="card-body">
               <div className="group">
                 <span>Customer Name:</span>
-                <span><b>{seletedBill.customerName}</b></span>
+                <span><b>{selectedBill.customerName}</b></span>
               </div>
               <div className="group">
                 <span>Customer Phone:</span>
-                <span><b>{seletedBill.customerPhone}</b></span>
+                <span><b>{selectedBill.customerPhone}</b></span>
               </div>
               <div className="group">
                 <span>Customer Adress:</span>
-                <span><b>{seletedBill.customerAdress}</b></span>
+                <span><b>{selectedBill.customerAdress}</b></span>
               </div>
               <div className="group">
                 <span>Date Order:</span>
-                <span><b>{seletedBill.createdAt.toString().substring(0, 10)}</b></span>
+                <span><b>{selectedBill.createdAt.toString().substring(0, 10)}</b></span>
               </div>
               <div className="group">
                 <span>Total Amount:</span>
-                <span><b>${seletedBill.totalAmount}</b></span>
+                <span><b>${selectedBill.totalAmount}</b></span>
               </div>
             </div>
             <div className="footer">
               <div className="card-footer">
                 <h4>Your Order</h4>
-                {seletedBill.cartItems.map((product: any)=>(
+                {selectedBill?.cartItems?.map((product: any)=>(
                   <div key={Math.random().toString()}>
                     <div className="footer-card">
                       <div className="group">
@@ -126,7 +126,7 @@ const Bills = () => {
                 <div className="footer-card_total">
                   <div className="group">
                     <h3>Total:</h3>
-                    <h3><b>${seletedBill.totalAmount}</b></h3>
+                    <h3><b>${selectedBill.totalAmount}</b></h3>
                   </div>
                 </div>
                 <div className="footer-thanks">

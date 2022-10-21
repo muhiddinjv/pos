@@ -27,7 +27,7 @@ function App() {
           <Route path='/customers' element={<Customers />}/>
           <Route path='/cart' element={
             <ProtectedRouter>
-              <Products />
+              <Cart />
             </ProtectedRouter>
           }/>
           <Route path='/bills' element={<Bills />}/>

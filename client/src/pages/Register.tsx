@@ -3,8 +3,8 @@ import FormItem from 'antd/es/form/FormItem'
 import { Link, useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import axios from 'axios'
-import { useEffect, useState } from 'react'
-import Validate from './Validate'
+import { useEffect } from 'react'
+// import Validate from './Validate'
 
 const Register = () => {  
   const dispatch = useDispatch();
@@ -37,13 +37,13 @@ const Register = () => {
       <div className="form-group">
         <Form layout='vertical' onFinish={handleSubmit}>
             <FormItem name='name' label='Name'>
-              <Input type='text'/>
+              <Input type='text' required/>
             </FormItem>
-            <FormItem name='userId' label='Email'>
-              <Validate />
+            <FormItem name='userId' label='User ID'>
+              <Input type='number' required />
             </FormItem>
             <FormItem name='password' label='Password'>
-              <Input type='password' />
+              <Input type='password' required/>
             </FormItem>
             <div className="form-btn-add">
               <Button htmlType='submit' className='add-new'>Register</Button>

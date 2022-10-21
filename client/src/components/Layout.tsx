@@ -15,13 +15,13 @@ import {
   import './layout.css';
 import Spinner from './Spinner';
 
-  interface Props {
+interface Props {
     children?: ReactNode
 }
   
   const { Header, Sider, Content } = Layout;
   
-  const LayoutApp: FC<Props> = ({children}) => {
+const LayoutApp: FC<Props> = ({children}) => {
     const {cartItems, loading} = useSelector((state: any) => state.rootReducer)
     const [collapsed, setCollapsed] = useState(false);
     const navigate = useNavigate();
@@ -60,6 +60,7 @@ import Spinner from './Spinner';
             }}>
               Logout
             </Menu.Item>
+            
           </Menu>
         </Sider>
         <Layout className="site-layout">

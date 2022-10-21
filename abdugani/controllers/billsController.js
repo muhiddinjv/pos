@@ -1,10 +1,9 @@
-import Bills from '../models/billsModel.js';
+import Bills from '../models/BillsModel.js';
 
 
 export const getBillsController = async (req, res) => {
     try {
-        const bills = await Bills.find();
-        res.send(bills);
+        res.send(await Bills.find());
     } catch (error) {
         console.log(error);
     }
@@ -13,6 +12,7 @@ export const getBillsController = async (req, res) => {
 export const addBillsController = async (req, res) => {
     try {
         const newBills = new Bills(req.body);
+        console.log(newBills)
         await newBills.save();
         res.send("Bill Created Successfully!");
     } catch (error) {

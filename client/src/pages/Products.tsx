@@ -91,7 +91,7 @@ const Products = () => {
     },
   ]
   
-  
+  console.log()
 
   return (
     <LayoutApp>
