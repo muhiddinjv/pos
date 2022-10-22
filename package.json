@@ -3,11 +3,10 @@
   "version": "1.0.0",
   "type": "module",
   "description": "point-of-sale-system",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "predeploy": "yarn run build",
-    "deploy": "gh-pages -d build",
-    "server": "nodemon index.js",
+    "start": "node server.js",
+    "server": "nodemon server.js",
     "client": "cd client && yarn start --prefix client",
     "dev": "concurrently \"yarn run server\" \"yarn run client\""
   },
