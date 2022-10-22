@@ -18,7 +18,7 @@ module.exports = async (req, res, next) => {
   } catch (error) {
     res.status(400).send({
       status: 400,
-      error: "Not Auth Token",
+      error: "No Auth Token",
     });
   }
 };

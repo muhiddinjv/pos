@@ -7,6 +7,8 @@ import mongoose from "mongoose";
 import productRouter from "./routes/productsRoutes.js";
 import userRouter from "./routes/userRoutes.js";
 import billsRouter from "./routes/billsRoutes.js";
+// import pkg from "express-openid-connect";
+// const { auth, requiresAuth } = pkg;
 
 dotenv.config();
 
@@ -22,7 +24,17 @@ mongoose
 
 const app = express();
 
+// const config = {
+//   authRequired: false,
+//   auth0Logout: true,
+//   baseURL: process.env.BASE_URL,
+//   clientID: process.env.CLIENT_ID,
+//   issuerBaseURL: process.env.ISSUER_BASE_URL,
+//   secret: process.env.APP_SESSION_SECRET,
+// };
+
 //middlewares
+// app.use(auth(config));
 app.use(cors());
 app.use(express.json());
 app.use(bodyParser.json());
