@@ -26,7 +26,7 @@ const Home = () => {
     const getAllProducts = async () => {
       try{
         dispatch({ type: "SHOW_LOADING" })
-        const {data} = await axios.get('/api/products/getproducts');
+        const {data} = await axios.get('https://sypos.herokuapp.com/api/products/getproducts');
         setProductData(data);   
         dispatch({ type: "HIDE_LOADING" })     
       } catch(error){

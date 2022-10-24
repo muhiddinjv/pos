@@ -13,10 +13,12 @@ const Products = () => {
   const [popModal, setPopModal] = useState(false);
   const [editProduct, setEditProduct] = useState<any>(false);
 
+  const herokuproducts = 'https://sypos.herokuapp.com/api/products';
+
   const getAllProducts = async () => {
     try{
       dispatch({ type: "SHOW_LOADING" })
-      const {data} = await axios.get('/api/products/getproducts');
+      const {data} = await axios.get(`${herokuproducts}/getproducts`);
       setProductData(data);   
       dispatch({ type: "HIDE_LOADING" })     
     } catch(error){
@@ -32,7 +34,7 @@ const Products = () => {
     if(editProduct === false){
       try{
         dispatch({ type: "SHOW_LOADING" })
-        await axios.post('/api/products/addproducts', value);
+        await axios.post(`${herokuproducts}/addproducts`, value);
         message.success('Product Added successfully!')
         getAllProducts();
         setPopModal(false);
@@ -44,7 +46,8 @@ const Products = () => {
     } else {
       try{
         dispatch({ type: "SHOW_LOADING" })
-        await axios.put('/api/products/udpateproducts', {...value, productId: editProduct._id});
+        // await axios.put('/api/products/udpateproducts', {...value, productId: editProduct._id});
+        await axios.put(`${herokuproducts}/udpateproducts`, {...value, productId: editProduct._id});
         message.success('Product Updated successfully!')
         getAllProducts();
         setPopModal(false);
@@ -59,7 +62,8 @@ const Products = () => {
   const handleDelete = async (record: any) => {
     try{
       dispatch({ type: "SHOW_LOADING" })
-      await axios.post('/api/products/deleteproducts', {productId: record._id});
+      // await axios.post('/api/products/deleteproducts', {productId: record._id});
+      await axios.post(`${herokuproducts}/deleteproducts`, {productId: record._id});
       message.success('Product Deleted successfully!')
       getAllProducts();
       setPopModal(false);

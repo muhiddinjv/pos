@@ -84,7 +84,7 @@ const Cart = () => {
           totalAmount: Number((Number(subTotal) + Number(((subTotal / 100) * 10).toFixed(2))).toFixed(2)),
           userId: JSON.parse(localStorage.getItem('auth') || '{}')._id,
         }
-        await axios.post('/api/bills/addbills', newObject);
+        await axios.post('https://sypos.herokuapp.com/api/bills/addbills', newObject);
         message.success('Bill Generated!');
         localStorage.removeItem(cartItems);
         navigate('/bills');

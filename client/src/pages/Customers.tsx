@@ -12,7 +12,7 @@ const Customers = () => {
   const getAllCustomers = async () => {
     try{
       dispatch({ type: "SHOW_LOADING" })
-      const {data} = await axios.get('/api/bills/getbills');
+      const {data} = await axios.get('https://sypos.herokuapp.com/api/bills/getbills');
       setBillsData(data);   
       dispatch({ type: "HIDE_LOADING" })     
     } catch(error){
