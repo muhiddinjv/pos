@@ -44,14 +44,16 @@ const Bills = () => {
     },{
       title:'Sub Total',
       dataIndex: 'subTotal',
+      render: (num: number) => num.toFixed(2) 
     },{
       title:'Tax',
       dataIndex: 'tax',
+      render: (num: number) => num.toFixed(2) 
     },{
       title:'Total Amount',
       dataIndex: 'totalAmount',
-    },
-    
+      render: (num: number) => num.toFixed(2)
+    },    
     {
       title:'Action',
       dataIndex: '_id',
@@ -64,14 +66,14 @@ const Bills = () => {
   const handlePrint = useReactToPrint({
     content: () => componentRef.current,
   })
-
-
+  
 
   return (
     <LayoutApp>
       <h2>All Invoices</h2>
       {/* <Button className='add-new' onClick={()=>setPopModal(true)}>Add New</Button> */}
-      <Table dataSource={billsData} columns={columns} bordered scroll={{ x: true }}/>
+      <Table rowKey="_id" dataSource={billsData} columns={columns} bordered scroll={{ x: true }}/>
+      
       {popModal && 
         <Modal title='Invoice Details' width={400} visible={popModal} onCancel={()=>{setPopModal(false)}} footer={false}>
           <div className="card" ref={componentRef}>

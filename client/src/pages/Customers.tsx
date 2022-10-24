@@ -43,7 +43,7 @@ const Customers = () => {
   return (
     <LayoutApp>
       <h2>All Customers</h2>
-      <Table dataSource={billsData} columns={columns} bordered scroll={{ x: true }}/>
+      <Table rowKey="_id" dataSource={billsData} columns={columns} bordered scroll={{ x: true }}/>
     </LayoutApp>
   )
 }

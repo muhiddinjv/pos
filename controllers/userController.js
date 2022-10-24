@@ -1,5 +1,7 @@
 import User from "../models/userModel.js";
 
+//3:55
+
 export const loginController = async (req, res) => {
   try {
     const { userId, password } = req.body;

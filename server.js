@@ -21,8 +21,6 @@ const client = new MongoClient(uri, {
 
 client.connect((err, db) => {
   const collection = client.db("pos").collection("products");
-  console.log(collection);
-  // do sth with collection
   client.close();
 });
 
@@ -40,17 +38,7 @@ mongoose
 
 const app = express();
 
-// const config = {
-//   authRequired: false,
-//   auth0Logout: true,
-//   baseURL: process.env.BASE_URL,
-//   clientID: process.env.CLIENT_ID,
-//   issuerBaseURL: process.env.ISSUER_BASE_URL,
-//   secret: process.env.APP_SESSION_SECRET,
-// };
-
 //middlewares
-// app.use(auth(config));
 app.use(cors());
 app.use(express.json());
 app.use(bodyParser.json());
@@ -59,7 +47,6 @@ app.use(morgan("dev"));
 
 app.get("/new", (req, res) => {
   res.send(dbcollection);
-  // console.log(dbcollection);
 });
 
 //routes

@@ -98,9 +98,9 @@ const Cart = () => {
   return (
     <LayoutApp>
       <h2>Cart</h2>
-      <Table dataSource={cartItems} columns={columns} bordered scroll={{ x: true }}/>
+      <Table rowKey="_id" dataSource={cartItems} columns={columns} bordered scroll={{ x: true }}/>
       <div className="sub-total">
-        <h2>Sub Total: <span>${(subTotal).toFixed(2)}</span></h2>
+        <h2>Sub Total: <span>${subTotal.toFixed(2)}</span></h2>
         <button className="add-new" onClick={()=>setBillPopUp(true)}>Create Invoice</button>
       </div>
       <Modal title="Create Invoice" visible={billPopUp} onCancel={()=>setBillPopUp(false)} footer={false}>
@@ -123,7 +123,7 @@ const Cart = () => {
             </FormItem>
             <div className="total">
               <span>Tax: ${((subTotal / 100) * 10).toFixed(2)}</span><br />
-              <span>SubTotal: ${(subTotal.toFixed(2))}</span>
+              <span>SubTotal: ${subTotal.toFixed(2)}</span>
               <h3>Total: ${(Number(subTotal) + Number(((subTotal / 100) * 10).toFixed(2))).toFixed(2)}</h3>
             </div>
             <div className="form-btn-add">

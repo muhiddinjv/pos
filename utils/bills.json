@@ -1,0 +1,249 @@
+[
+  {
+    "_id": {
+      "$oid": "6318913100680dcb3e22fc07"
+    },
+    "customerName": "Mukhiddin Jalilkhodjaev",
+    "customerPhone": 12345,
+    "customerAdress": "my adress",
+    "totalAmount": 102.81,
+    "subTotal": 93.46,
+    "tax": 9.35,
+    "paymentMethod": "cash",
+    "cartItems": [
+      {
+        "_id": "63133177c7a5fddfb9c53144",
+        "name": "Product 5",
+        "category": "pizzas",
+        "price": 5.55,
+        "image": "/images/Food/Pizza/Pepperoni-Pizza-Transparent-PNG.png",
+        "quantity": 1
+      },
+      {
+        "_id": "631338c521678a3aa9ff747c",
+        "name": "polvon palov",
+        "category": "pizzas",
+        "price": 33,
+        "image": "https://uzbekistan.travel/storage/app/media/nargiza/cropped-images/4-0-0-0-0-1583312859.png",
+        "__v": 0,
+        "quantity": 2
+      },
+      {
+        "_id": "63133177c7a5fddfb9c53141",
+        "name": "Product 1",
+        "category": "pizzas",
+        "price": 2.33,
+        "image": "/images/Food/Pizza/Cheese-Pizza-PNG-Image.png",
+        "quantity": 2
+      },
+      {
+        "_id": "63133177c7a5fddfb9c53142",
+        "name": "Product 3",
+        "category": "pizzas",
+        "price": 3,
+        "image": "/images/Food/Pizza/Pepperoni-Pizza-PNG-Image.png",
+        "quantity": 1
+      },
+      {
+        "_id": "63133177c7a5fddfb9c53143",
+        "name": "Product 4",
+        "category": "pizzas",
+        "price": 4.75,
+        "image": "/images/Food/Pizza/Pepperoni-Pizza-PNG-Transparent-Image.png",
+        "quantity": 3
+      }
+    ],
+    "createdAt": {
+      "$date": {
+        "$numberLong": "1662554417002"
+      }
+    },
+    "updatedAt": {
+      "$date": {
+        "$numberLong": "1662554417002"
+      }
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "6318c9e40357e04dc85ae5e5"
+    },
+    "customerName": "klichko",
+    "customerPhone": 1221,
+    "customerAdress": "customer adress is not known",
+    "totalAmount": 83.83,
+    "subTotal": 76.21,
+    "tax": 7.62,
+    "paymentMethod": "cash",
+    "cartItems": [
+      {
+        "_id": "63133177c7a5fddfb9c53144",
+        "name": "Product 5",
+        "category": "pizzas",
+        "price": 5.55,
+        "image": "/images/Food/Pizza/Pepperoni-Pizza-Transparent-PNG.png",
+        "quantity": 1
+      },
+      {
+        "_id": "631338c521678a3aa9ff747c",
+        "name": "polvon palov",
+        "category": "pizzas",
+        "price": 33,
+        "image": "https://uzbekistan.travel/storage/app/media/nargiza/cropped-images/4-0-0-0-0-1583312859.png",
+        "__v": 0,
+        "quantity": 2
+      },
+      {
+        "_id": "63133177c7a5fddfb9c53141",
+        "name": "Product 1",
+        "category": "pizzas",
+        "price": 2.33,
+        "image": "/images/Food/Pizza/Cheese-Pizza-PNG-Image.png",
+        "quantity": 2
+      }
+    ],
+    "createdAt": {
+      "$date": {
+        "$numberLong": "1662568932151"
+      }
+    },
+    "updatedAt": {
+      "$date": {
+        "$numberLong": "1662568932151"
+      }
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "63196bac5b0503e28905f643"
+    },
+    "customerName": "my name",
+    "customerPhone": 111,
+    "customerAdress": "my adress",
+    "totalAmount": 92.36,
+    "subTotal": 83.96,
+    "tax": 8.4,
+    "paymentMethod": "cash",
+    "cartItems": [
+      {
+        "_id": "63133177c7a5fddfb9c53144",
+        "name": "Product 5",
+        "category": "pizzas",
+        "price": 5.55,
+        "image": "/images/Food/Pizza/Pepperoni-Pizza-Transparent-PNG.png",
+        "quantity": 1
+      },
+      {
+        "_id": "631338c521678a3aa9ff747c",
+        "name": "polvon palov",
+        "category": "pizzas",
+        "price": 33,
+        "image": "https://uzbekistan.travel/storage/app/media/nargiza/cropped-images/4-0-0-0-0-1583312859.png",
+        "__v": 0,
+        "quantity": 2
+      },
+      {
+        "_id": "63133177c7a5fddfb9c53141",
+        "name": "Product 1",
+        "category": "pizzas",
+        "price": 2.33,
+        "image": "/images/Food/Pizza/Cheese-Pizza-PNG-Image.png",
+        "quantity": 2
+      },
+      {
+        "_id": "63133177c7a5fddfb9c53142",
+        "name": "Product 3",
+        "category": "pizzas",
+        "price": 3,
+        "image": "/images/Food/Pizza/Pepperoni-Pizza-PNG-Image.png",
+        "quantity": 1
+      },
+      {
+        "_id": "63133177c7a5fddfb9c53143",
+        "name": "Product 4",
+        "category": "pizzas",
+        "price": 4.75,
+        "image": "/images/Food/Pizza/Pepperoni-Pizza-PNG-Transparent-Image.png",
+        "quantity": 1
+      }
+    ],
+    "createdAt": {
+      "$date": {
+        "$numberLong": "1662610348267"
+      }
+    },
+    "updatedAt": {
+      "$date": {
+        "$numberLong": "1662610348267"
+      }
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "634fe7baaffde865560c9728"
+    },
+    "customerName": "Kumush",
+    "customerPhone": 123456,
+    "customerAdress": "New York, Apple Ave. 46",
+    "totalAmount": 64.05,
+    "subTotal": 58.23,
+    "tax": 5.82,
+    "paymentMethod": "cash",
+    "cartItems": [
+      {
+        "_id": "63133177c7a5fddfb9c53141",
+        "name": "Product 1",
+        "category": "pizzas",
+        "price": 2.33,
+        "image": "/images/Food/Pizza/Cheese-Pizza-PNG-Image.png",
+        "quantity": 6
+      },
+      {
+        "_id": "63197704ee02e1d0afb1eb42",
+        "name": "Product 6",
+        "category": "pizzas",
+        "price": 3.45,
+        "image": "/images/Food/Pizza/pizza-png-19310.png",
+        "quantity": 5
+      },
+      {
+        "_id": "63197704ee02e1d0afb1eb66",
+        "name": "Product 41",
+        "category": "drinks",
+        "price": 12,
+        "image": "/images/Drink/2-2-drink-png-10.png",
+        "quantity": 1
+      },
+      {
+        "_id": "63197704ee02e1d0afb1eb65",
+        "name": "Product 40",
+        "category": "drinks",
+        "price": 11.5,
+        "image": "/images/Drink/54475-8-ice-milk-picture-free-hq-image.png",
+        "quantity": 1
+      },
+      {
+        "_id": "63197704ee02e1d0afb1eb64",
+        "name": "Product 39",
+        "category": "drinks",
+        "price": 3.5,
+        "image": "/images/Drink/10-2-drink-png-7.png",
+        "quantity": 1
+      }
+    ],
+    "createdAt": {
+      "$date": {
+        "$numberLong": "1666181050169"
+      }
+    },
+    "updatedAt": {
+      "$date": {
+        "$numberLong": "1666181050169"
+      }
+    },
+    "__v": 0
+  }
+]

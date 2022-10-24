@@ -1,0 +1,132 @@
+[
+  {
+    "_id": {
+      "$oid": "6315c620e05097d588034f8c"
+    },
+    "name": "tyson",
+    "userId": "1984",
+    "password": "123qwe",
+    "verified": true,
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "6315c6dce05097d588034f92"
+    },
+    "name": "kassir1",
+    "userId": "1984",
+    "password": "12345",
+    "verified": true,
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "6315c7a5e05097d588034f97"
+    },
+    "name": "ali",
+    "userId": "1985",
+    "password": "P@ssw0rd",
+    "verified": true,
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "6315c7cee05097d588034f9c"
+    },
+    "name": "ali",
+    "userId": "1985",
+    "password": "P@ssw0rd",
+    "verified": true,
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "6315c7fee05097d588034f9e"
+    },
+    "name": "vali",
+    "userId": "1234",
+    "password": "1234",
+    "verified": true,
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "6315c8b93ecbb5cccaafc21a"
+    },
+    "name": "vali",
+    "userId": "1234",
+    "password": "1234",
+    "verified": true,
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "6315dee9a065f2825309c5cd"
+    },
+    "name": "name",
+    "userId": "123",
+    "password": "123",
+    "verified": true,
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "6315dfd0c833851e561600f2"
+    },
+    "name": "cola",
+    "userId": "123",
+    "password": 123,
+    "verified": true,
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "6315e1931eb3be5da2a882ef"
+    },
+    "name": "cola",
+    "userId": "321",
+    "password": "321",
+    "verified": true,
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "6329a3acb36197f66f8ffc86"
+    },
+    "name": "Mukhiddin Jalilkhodjaev",
+    "userId": "wow@wow.com",
+    "password": "123",
+    "verified": true,
+    "createdAt": {
+      "$date": {
+        "$numberLong": "1663673260735"
+      }
+    },
+    "updatedAt": {
+      "$date": {
+        "$numberLong": "1663673260735"
+      }
+    },
+    "__v": 0
+  },
+  {
+    "_id": {
+      "$oid": "632a02128cda9fbb73c6f9d0"
+    },
+    "name": "Muhiddin",
+    "userId": 2022,
+    "password": "2022",
+    "verified": true,
+    "createdAt": {
+      "$date": {
+        "$numberLong": "1663697426599"
+      }
+    },
+    "updatedAt": {
+      "$date": {
+        "$numberLong": "1663697426599"
+      }
+    },
+    "__v": 0
+  }
+]

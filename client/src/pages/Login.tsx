@@ -14,6 +14,7 @@ const Login = () => {
     try{
       dispatch({ type: "SHOW_LOADING" })
       const res = await axios.post('/api/users/login', value);
+      console.log('inpvalue',value);
       message.success('Logged In Successfully!')
       localStorage.setItem("auth", JSON.stringify(res.data));
       navigate('/');
