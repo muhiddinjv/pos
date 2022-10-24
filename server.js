@@ -10,6 +10,22 @@ import billsRouter from "./routes/billsRoutes.js";
 // import pkg from "express-openid-connect";
 // const { auth, requiresAuth } = pkg;
 
+import { MongoClient, ServerApiVersion } from "mongodb";
+const uri =
+  "mongodb+srv://muhiddin:p455w0rd@pos.udur8zi.mongodb.net/?retryWrites=true&w=majority";
+const client = new MongoClient(uri, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  serverApi: ServerApiVersion.v1,
+});
+
+client.connect((err, db) => {
+  const collection = client.db("pos").collection("products");
+  console.log(collection);
+  // do sth with collection
+  client.close();
+});
+
 dotenv.config();
 
 // connect with mongodb
@@ -40,6 +56,11 @@ app.use(express.json());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(morgan("dev"));
+
+app.get("/new", (req, res) => {
+  res.send(dbcollection);
+  // console.log(dbcollection);
+});
 
 //routes
 app.use("/api/products/", productRouter);

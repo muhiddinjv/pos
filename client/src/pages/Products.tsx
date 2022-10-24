@@ -17,6 +17,7 @@ const Products = () => {
     try{
       dispatch({ type: "SHOW_LOADING" })
       const {data} = await axios.get('/api/products/getproducts');
+      console.log('dbdata :>> ', data);
       setProductData(data);   
       dispatch({ type: "HIDE_LOADING" })     
     } catch(error){
