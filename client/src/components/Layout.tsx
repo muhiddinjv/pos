@@ -32,7 +32,7 @@ const LayoutApp: FC<Props> = ({children}) => {
 
     useEffect(() => {
       localStorage.setItem('cartItems', JSON.stringify(cartItems));
-    }, [cartItems])
+    }, [cartItems]);
     
   
     return (
