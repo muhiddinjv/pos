@@ -39,7 +39,7 @@ const Register = () => {
             <FormItem name='name' label='Name'>
               <Input type='text' required/>
             </FormItem>
-            <FormItem name='userId' label='User ID'>
+            <FormItem name='pincode' label='Pin Code'>
               <Input type='number' required />
             </FormItem>
             <FormItem name='password' label='Password'>

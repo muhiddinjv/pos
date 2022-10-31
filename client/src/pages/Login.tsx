@@ -13,13 +13,15 @@ const Login = () => {
   const handleSubmit = async (value: any) => {
     try{
       dispatch({ type: "SHOW_LOADING" })
-      const res = await axios.post('https://sypos.herokuapp.com/api/users/login', value);
+      // const res = await axios.post('https://sypos.herokuapp.com/api/users/login', value);
+      const res = await axios.post('http://localhost:5000/pos/api/users/login', value);
+      console.log('res',res);
       message.success('Logged In Successfully!')
       localStorage.setItem("auth", JSON.stringify(res.data));
       navigate('/');
       dispatch({ type: "HIDE_LOADING" })     
     } catch(error){
-      message.error('Error!')
+      message.error('Incorrect input or not registered!')
       console.log(error)
     }
   }
@@ -36,8 +38,8 @@ const Login = () => {
       <h2>MP POS</h2>
       <p>Login</p>
       <div className="form-group">
-      <Form layout='vertical' onFinish={handleSubmit}>
-          <FormItem name='userId' label='User ID'>
+        <Form layout='vertical' onFinish={handleSubmit}>
+          <FormItem name='pincode' label='Pin Code'>
             <Input type='number' required/>
             {/* <Validate /> */}
           </FormItem>

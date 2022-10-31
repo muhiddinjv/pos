@@ -1,5 +1,5 @@
 {
-  "homepage": "https://muhiddinjv.github.io/pos",
+  "homepage": "https://muhiddinjv.github.io/",
   "name": "client",
   "proxy": "http://localhost:5000",
   "version": "0.1.0",
