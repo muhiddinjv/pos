@@ -11,14 +11,16 @@ const Register = () => {
   const navigate = useNavigate();
 
   const handleSubmit = async (value: any) => {
+    console.log('register: ',value);
     try{
       dispatch({ type: "SHOW_LOADING" })
-      await axios.post('https://sypos.herokuapp.com/api/users/register', value);
+      // await axios.post('https://sypos.herokuapp.com/api/users/register', value);
+      await axios.post('/api/users/register', value);
       message.success('Registered successfully!');
       navigate('/login');
       dispatch({ type: "HIDE_LOADING" });     
     } catch(error){
-      message.error('Error!');
+      message.error('Name or password exists!');
       console.log(error);
     }
   }
@@ -38,6 +40,9 @@ const Register = () => {
         <Form layout='vertical' onFinish={handleSubmit}>
             <FormItem name='name' label='Name'>
               <Input type='text' required/>
+            </FormItem>
+            <FormItem name='email' label='Email'>
+              <Input type='email' required/>
             </FormItem>
             <FormItem name='password' label='Password'>
               <Input type='password' required/>

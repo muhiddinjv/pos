@@ -8,6 +8,7 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import Bills from './pages/Bills';
 import Customers from './pages/Customers';
+import Admin from './pages/Admin';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
             </ProtectedRouter>
           }/>
           <Route path='/customers' element={<Customers />}/>
+          <Route path='/admin' element={<Admin />}/>
           <Route path='/cart' element={
             <ProtectedRouter>
               <Cart />

@@ -55,6 +55,9 @@ const LayoutApp: FC<Props> = ({children}) => {
             <Menu.Item key='/customers' icon={<UserSwitchOutlined/>}>
               <Link to='/customers'>Customers</Link>
             </Menu.Item>
+            <Menu.Item key='/admin' icon={<UserSwitchOutlined/>}>
+              <Link to='/admin'>Admin</Link>
+            </Menu.Item>
             <Menu.Item key='/logout' icon={<LogoutOutlined/>} onClick={()=>{
               localStorage.removeItem('auth'); navigate('/login')
             }}>
