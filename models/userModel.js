@@ -2,10 +2,9 @@ import mongoose from "mongoose";
 
 const userSchema = mongoose.Schema(
   {
-    name: { type: String, required: true },
-    pincode: { type: Number, required: true },
+    username: { type: String, required: true },
     password: { type: String, required: true },
-    verified: { type: Boolean },
+    isAdmin: { type: Boolean },
   },
   {
     //for date

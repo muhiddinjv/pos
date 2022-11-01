@@ -48,12 +48,12 @@ app.post("/api/refresh", (req, res) => {
 
     refreshTokens.push(newRefreshToken);
 
+    // if everything is ok, create new access & refresh tokens & send to user
     res.status(200).json({
       accessToken: newAccessToken,
       refreshToken: newRefreshToken,
     });
   });
-  // if everything is ok, create new access & refresh tokens & send to user
 });
 
 const generateAccessToken = (user) => {
@@ -68,6 +68,8 @@ const generateRefreshToken = (user) => {
 
 app.post("/api/login", (req, res) => {
   const { username, password } = req.body;
+
+  console.log(username);
 
   const user = users.find(
     (u) => u.username === username && u.password === password
@@ -97,7 +99,6 @@ const verify = (req, res, next) => {
       if (err) {
         return res.status(403).json("Invalid Token");
       }
-
       req.user = user;
       next();
     });
@@ -120,6 +121,6 @@ app.post("/api/logout", (req, res) => {
   res.status(200).json("You logged out successfully!");
 });
 
-app.listen(1000, () => {
-  console.log("server is running on http://localhost:1000");
+app.listen(5000, () => {
+  console.log("server is running on http://localhost:5000");
 });

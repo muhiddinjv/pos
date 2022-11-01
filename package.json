@@ -6,7 +6,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "backend": "nodemon test.js",
+    "testbe": "nodemon test.js",
     "server": "nodemon server.js",
     "client": "cd client && yarn start --prefix client",
     "dev": "concurrently \"yarn run server\" \"yarn run client\""

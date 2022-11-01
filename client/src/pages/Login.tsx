@@ -11,10 +11,11 @@ const Login = () => {
   const navigate = useNavigate();
 
   const handleSubmit = async (value: any) => {
+    console.log(value)
     try{
       dispatch({ type: "SHOW_LOADING" })
       // const res = await axios.post('https://sypos.herokuapp.com/api/users/login', value);
-      const res = await axios.post('http://localhost:5000/pos/api/users/login', value);
+      const res = await axios.post('/api/users/login', value);
       console.log('res',res);
       message.success('Logged In Successfully!')
       localStorage.setItem("auth", JSON.stringify(res.data));
@@ -39,8 +40,8 @@ const Login = () => {
       <p>Login</p>
       <div className="form-group">
         <Form layout='vertical' onFinish={handleSubmit}>
-          <FormItem name='pincode' label='Pin Code'>
-            <Input type='number' required/>
+          <FormItem name='username' label='User Name'>
+            <Input type='text' required/>
             {/* <Validate /> */}
           </FormItem>
           <FormItem name='password' label='Password'>

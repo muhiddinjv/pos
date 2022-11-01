@@ -46,7 +46,6 @@ const Products = () => {
     } else {
       try{
         dispatch({ type: "SHOW_LOADING" })
-        // await axios.put('/api/products/udpateproducts', {...value, productId: editProduct._id});
         await axios.put(`${herokuproducts}/udpateproducts`, {...value, productId: editProduct._id});
         message.success('Product Updated successfully!')
         getAllProducts();
