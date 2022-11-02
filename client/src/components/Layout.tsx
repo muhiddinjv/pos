@@ -3,6 +3,7 @@ import {
     MenuFoldOutlined,
     HomeOutlined,
     UserSwitchOutlined,
+    UserOutlined,
     MoneyCollectOutlined,
     OrderedListOutlined,
     ShoppingCartOutlined,
@@ -22,7 +23,7 @@ interface Props {
   const { Header, Sider, Content } = Layout;
   
 const LayoutApp: FC<Props> = ({children}) => {
-    const {cartItems, loading} = useSelector((state: any) => state.rootReducer)
+    const {cartItems, loading, currentuser} = useSelector((state: any) => state.rootReducer)
     const [collapsed, setCollapsed] = useState(false);
     const navigate = useNavigate();
 
@@ -33,8 +34,7 @@ const LayoutApp: FC<Props> = ({children}) => {
     useEffect(() => {
       localStorage.setItem('cartItems', JSON.stringify(cartItems));
     }, [cartItems]);
-    
-  
+      
     return (
       <Layout>
         {loading && <Spinner />}
@@ -55,9 +55,9 @@ const LayoutApp: FC<Props> = ({children}) => {
             <Menu.Item key='/customers' icon={<UserSwitchOutlined/>}>
               <Link to='/customers'>Customers</Link>
             </Menu.Item>
-            <Menu.Item key='/admin' icon={<UserSwitchOutlined/>}>
+            {currentuser?.isAdmin && <Menu.Item key='/admin' icon={<UserOutlined/>}>
               <Link to='/admin'>Admin</Link>
-            </Menu.Item>
+            </Menu.Item>}
             <Menu.Item key='/logout' icon={<LogoutOutlined/>} onClick={()=>{
               localStorage.removeItem('auth'); navigate('/login')
             }}>

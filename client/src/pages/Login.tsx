@@ -15,12 +15,20 @@ const Login = () => {
 
     try{
       dispatch({ type: "SHOW_LOADING" })
-      // const res = await axios.post('https://sypos.herokuapp.com/api/users/login', value);
-      const res = await axios.post('/api/users/login', value);
-      console.log('res.data :>> ', res.data);
+      const res = await axios.post('https://sypos.herokuapp.com/api/users/login', value);
+      // const res = await axios.post('/api/users/login', value);
+      
       message.success('Logged In Successfully!')
       localStorage.setItem("auth", JSON.stringify(res.data));
+      const currentuser: any = localStorage.getItem('auth');
+      
+      dispatch({
+        type: "SET_CURRENT_USER",
+        payload: JSON.parse(currentuser)
+      })
+      
       navigate('/');
+
       dispatch({ type: "HIDE_LOADING" })     
     } catch(error){
       message.error('Incorrect input or not registered!')

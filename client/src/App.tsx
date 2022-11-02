@@ -26,13 +26,21 @@ function App() {
             </ProtectedRouter>
           }/>
           <Route path='/customers' element={<Customers />}/>
-          <Route path='/admin' element={<Admin />}/>
+          <Route path='/admin' element={
+              <ProtectedRouter>
+                <Admin />
+              </ProtectedRouter>
+          }/>
           <Route path='/cart' element={
             <ProtectedRouter>
               <Cart />
             </ProtectedRouter>
           }/>
-          <Route path='/bills' element={<Bills />}/>
+          <Route path='/bills' element={
+            <ProtectedRouter>
+              <Bills />
+            </ProtectedRouter>
+          }/>
           <Route path='/login' element={<Login />}/>
           <Route path='/register' element={<Register />}/>
         </Routes>

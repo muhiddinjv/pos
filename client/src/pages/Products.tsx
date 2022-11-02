@@ -14,6 +14,7 @@ const Products = () => {
   const [editProduct, setEditProduct] = useState<any>(false);
 
   const herokuproducts = 'https://sypos.herokuapp.com/api/products';
+  // const herokuproducts = '/api/products';
 
   const getAllProducts = async () => {
     try{
@@ -61,7 +62,6 @@ const Products = () => {
   const handleDelete = async (record: any) => {
     try{
       dispatch({ type: "SHOW_LOADING" })
-      // await axios.post('/api/products/deleteproducts', {productId: record._id});
       await axios.post(`${herokuproducts}/deleteproducts`, {productId: record._id});
       message.success('Product Deleted successfully!')
       getAllProducts();
