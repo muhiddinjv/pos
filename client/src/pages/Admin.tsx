@@ -11,15 +11,12 @@ const Admin = () => {
   const navigate = useNavigate();
 
   const [usersData, setUsersData] = useState([]);
-  const [navigateTo, setNavigateTo] = useState();
-  
   const {currentuser} = useSelector((state: any) => state.rootReducer)
-
 
   const getAllUsers = async () => {
     try{
       dispatch({ type: "SHOW_LOADING" })
-      const {data} = await axios.get('/api/users/getusers');
+      const {data} = await axios.get('https://sypos.herokuapp.com/api/users/getusers');
       setUsersData(data);   
       dispatch({ type: "HIDE_LOADING" })     
     } catch(error){
@@ -35,7 +32,6 @@ const Admin = () => {
     try{
       dispatch({ type: "SHOW_LOADING" })
       await axios.post('https://sypos.herokuapp.com/api/users/deluser', {userId: user._id});
-      // await axios.post("/api/users/deluser", {userId: user._id});
       message.success('User Deleted successfully!')
       getAllUsers();
       dispatch({ type: "HIDE_LOADING" })     

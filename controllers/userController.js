@@ -4,7 +4,6 @@ import dotenv from "dotenv";
 dotenv.config();
 
 export const loginController = async (req, res) => {
-  // try {
   const { name, password } = req.body;
 
   const user = await User.findOne({ name, password });
@@ -27,13 +26,9 @@ export const loginController = async (req, res) => {
       user,
     });
   }
-  // } catch (error) {
-  //   console.log(error);
-  // }
 };
 
 export const registerController = async (req, res) => {
-  // try {
   const { name, password } = req.body;
   const userExists = await User.exists({ name, password });
   if (userExists) {

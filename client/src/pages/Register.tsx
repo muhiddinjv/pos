@@ -15,7 +15,6 @@ const Register = () => {
     try{
       dispatch({ type: "SHOW_LOADING" })
       await axios.post('https://sypos.herokuapp.com/api/users/register', value);
-      // await axios.post('/api/users/register', value);
       message.success('Registered successfully!');
       navigate('/login');
       dispatch({ type: "HIDE_LOADING" });     
