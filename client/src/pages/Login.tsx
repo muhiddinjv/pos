@@ -1,9 +1,11 @@
 import { Button, Form, Input, message } from 'antd'
 import FormItem from 'antd/es/form/FormItem'
 import axios from 'axios'
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
+import jwt_decode from 'jwt-decode';
+
 // import Validate from './Validate'
 
 const Login = () => {
@@ -11,23 +13,13 @@ const Login = () => {
   const navigate = useNavigate();
 
   const handleSubmit = async (value: any) => {
-    console.log('submit: ',value);
-
     try{
       dispatch({ type: "SHOW_LOADING" })
       const res = await axios.post('https://sypos.herokuapp.com/api/users/login', value);
-      
+      localStorage.setItem("usertoken", JSON.stringify(res.data.user));
       message.success('Logged In Successfully!')
-      localStorage.setItem("auth", JSON.stringify(res.data));
-      const currentuser: any = localStorage.getItem('auth');
-      
-      dispatch({
-        type: "SET_CURRENT_USER",
-        payload: JSON.parse(currentuser)
-      })
       
       navigate('/');
-
       dispatch({ type: "HIDE_LOADING" })     
     } catch(error){
       message.error('Incorrect input or not registered!')
@@ -35,8 +27,8 @@ const Login = () => {
   }
 
   useEffect(() => {
-    if(localStorage.getItem("auth")){
-      localStorage.getItem("auth")
+    if(localStorage.getItem("usertoken")){
+      localStorage.getItem("usertoken")
       navigate('/')
     }
   }, [navigate]);

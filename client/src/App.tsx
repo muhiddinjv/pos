@@ -52,7 +52,7 @@ function App() {
 export default App;
 
 export function ProtectedRouter({children}:any){
-  if(localStorage.getItem('auth')){
+  if(localStorage.getItem('usertoken')){
     return children;
   } else {
     return <Navigate to='/login' />

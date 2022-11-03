@@ -15,6 +15,7 @@ import {
   import { Link, useNavigate } from 'react-router-dom';
   import './layout.css';
 import Spinner from './Spinner';
+import jwt_decode from 'jwt-decode'
 
 interface Props {
     children?: ReactNode
@@ -23,9 +24,11 @@ interface Props {
   const { Header, Sider, Content } = Layout;
   
 const LayoutApp: FC<Props> = ({children}) => {
-    const {cartItems, loading, currentuser} = useSelector((state: any) => state.rootReducer)
+    const {cartItems, loading} = useSelector((state: any) => state.rootReducer)
     const [collapsed, setCollapsed] = useState(false);
     const navigate = useNavigate();
+    const token: any = localStorage.getItem('usertoken');
+    const currentuser: any = jwt_decode(token);
 
     const toggle = () => {
       setCollapsed(!collapsed);
@@ -36,11 +39,11 @@ const LayoutApp: FC<Props> = ({children}) => {
     }, [cartItems]);
       
     return (
-      <Layout>
+      <Layout className="main-layout">
         {loading && <Spinner />}
-        <Sider trigger={null} collapsible collapsed={collapsed}>
+        <Sider className="site-layout-background" width={200} breakpoint="lg" trigger={null} collapsible collapsed={collapsed}>
           <div className="logo">
-            <h2 className='logo-title'>MP POS</h2>
+            <h2 className='logo-title'>POS</h2>
           </div>
           <Menu theme="dark" mode="inline" defaultSelectedKeys={[window.location.pathname]}>
             <Menu.Item key='/' icon={<HomeOutlined/>}>
@@ -59,7 +62,7 @@ const LayoutApp: FC<Props> = ({children}) => {
               <Link to='/admin'>Admin</Link>
             </Menu.Item>}
             <Menu.Item key='/logout' icon={<LogoutOutlined/>} onClick={()=>{
-              localStorage.removeItem('auth'); navigate('/login')
+              localStorage.removeItem('usertoken'); navigate('/login')
             }}>
               Logout
             </Menu.Item>

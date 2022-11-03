@@ -25,8 +25,8 @@ const Register = () => {
   }
 
   useEffect(() => {
-    if(localStorage.getItem("auth")){
-      localStorage.getItem("auth")
+    if(localStorage.getItem("usertoken")){
+      localStorage.getItem("usertoken")
       navigate('/')
     }
   }, [navigate]);
@@ -42,6 +42,9 @@ const Register = () => {
             </FormItem>
             <FormItem name='email' label='Email'>
               <Input type='email' required/>
+            </FormItem>
+            <FormItem name='birthday' label='Birthday'>
+              <Input type='date' required/>
             </FormItem>
             <FormItem name='password' label='Password'>
               <Input type='password' required/>

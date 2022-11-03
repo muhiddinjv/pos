@@ -9,6 +9,7 @@ const Home = () => {
   const dispatch = useDispatch();
   const [productData, setProductData] = useState<any[]>([])
   const [selectedCategory, setSelectedCategory] = useState('pizzas');
+
   const categories = [
     {
       name: "pizzas",
@@ -21,20 +22,20 @@ const Home = () => {
       imgUrl: "/images/Drink/1-2-drink-png-12.png",
     }
   ]
+
+  const getAllProducts = async () => {
+    try{
+      dispatch({ type: "SHOW_LOADING" })
+      const {data} = await axios.get('https://sypos.herokuapp.com/api/products/getproducts');
+      setProductData(data);   
+      dispatch({ type: "HIDE_LOADING" })     
+    } catch(error){
+      console.log(error)
+    }
+  }
   
   useEffect(() => {
-    const getAllProducts = async () => {
-      try{
-        dispatch({ type: "SHOW_LOADING" })
-        const {data} = await axios.get('https://sypos.herokuapp.com/api/products/getproducts');
-        setProductData(data);   
-        dispatch({ type: "HIDE_LOADING" })     
-      } catch(error){
-        console.log(error)
-      }
-    }
-  
-    getAllProducts()
+    getAllProducts();
   }, [dispatch])
   
   return (

@@ -14,7 +14,6 @@ const Products = () => {
   const [editProduct, setEditProduct] = useState<any>(false);
 
   const herokuproducts = 'https://sypos.herokuapp.com/api/products';
-  // const herokuproducts = '/api/products';
 
   const getAllProducts = async () => {
     try{

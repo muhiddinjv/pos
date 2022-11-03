@@ -6,6 +6,7 @@ import LayoutApp from '../components/Layout'
 import FormItem from 'antd/es/form/FormItem'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
+import jwt_decode from 'jwt-decode';
 
 const Cart = () => {
     const [subTotal, setSubTotal] = useState(0);
@@ -13,6 +14,9 @@ const Cart = () => {
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
+    
+    const token: any = localStorage.getItem('usertoken');
+    const currentuser: any = jwt_decode(token);
     
     const {cartItems} = useSelector((state: any) => state.rootReducer)
     
@@ -75,14 +79,14 @@ const Cart = () => {
 
 
     const handleSubmit = async (value: any) => {
-      console.log('value :>> ', value);
 
       try {
         const newObject = {
           ...value, cartItems, subTotal,
           tax: Number(((subTotal / 100) * 10).toFixed(2)),
           totalAmount: Number((Number(subTotal) + Number(((subTotal / 100) * 10).toFixed(2))).toFixed(2)),
-          userId: JSON.parse(localStorage.getItem('auth') || '{}')._id,
+          userId: currentuser.id,
+          // userId: JSON.parse(localStorage.getItem('usertoken') || '{}')._id,
         }
         await axios.post('https://sypos.herokuapp.com/api/bills/addbills', newObject);
         message.success('Bill Generated!');

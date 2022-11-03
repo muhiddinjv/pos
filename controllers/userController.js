@@ -6,25 +6,27 @@ dotenv.config();
 export const loginController = async (req, res) => {
   const { name, password } = req.body;
 
-  const user = await User.findOne({ name, password });
+  try {
+    const user = await User.findOne({ name, password });
 
-  if (user) {
-    // generate an access token
-    const accessToken = jwt.sign(
-      { id: user._id, isAdmin: user.isAdmin },
-      "myAccessSecretKey"
-    );
+    if (user) {
+      // generate an access token
+      const accessToken = jwt.sign(
+        { id: user._id, name: user.name, isAdmin: user.isAdmin },
+        "myAccessSecretKey"
+      );
 
-    res.status(200).send({
-      name: user.name,
-      isAdmin: user.isAdmin,
-      accessToken,
-    });
-  } else {
-    res.status(400).json({
-      message: "name or password incorrect!",
-      user,
-    });
+      res.status(200).send({
+        user: accessToken,
+      });
+    } else {
+      res.status(400).json({
+        message: "name or password incorrect!",
+        user,
+      });
+    }
+  } catch (error) {
+    console.log(error);
   }
 };
 
@@ -34,7 +36,7 @@ export const registerController = async (req, res) => {
   if (userExists) {
     res.status(422).send();
   } else {
-    const newUser = new User({ ...req.body, isAdmin: false });
+    const newUser = new User({ ...req.body });
     await newUser.save();
     res.status(200).send();
   }

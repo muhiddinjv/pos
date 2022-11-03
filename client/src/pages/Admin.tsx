@@ -5,13 +5,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import LayoutApp from '../components/Layout';
 import { DeleteOutlined } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
+import jwt_decode from 'jwt-decode';
 
 const Admin = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const [usersData, setUsersData] = useState([]);
-  const {currentuser} = useSelector((state: any) => state.rootReducer)
 
   const getAllUsers = async () => {
     try{
@@ -24,14 +24,18 @@ const Admin = () => {
     }
   }
 
+  const token: any = localStorage.getItem('usertoken');
+  const currentuser: any = jwt_decode(token);
+
   useEffect(() => {
     getAllUsers()
-  }, []);
+  }, [])
 
   const handleDelete = async (user: any) => {
     try{
       dispatch({ type: "SHOW_LOADING" })
-      await axios.post('https://sypos.herokuapp.com/api/users/deluser', {userId: user._id});
+      await axios.post('/api/users/deluser', {userId: user._id});
+      // await axios.post('https://sypos.herokuapp.com/api/users/deluser', {userId: user._id});
       message.success('User Deleted successfully!')
       getAllUsers();
       dispatch({ type: "HIDE_LOADING" })     
@@ -48,6 +52,9 @@ const Admin = () => {
     },{
       title:'Email',
       dataIndex: 'email',
+    },{
+      title:'Birthday',
+      dataIndex: 'birthday',
     },{
       title:'Password',
       dataIndex: 'password',
