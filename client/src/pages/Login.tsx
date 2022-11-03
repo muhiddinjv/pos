@@ -15,7 +15,8 @@ const Login = () => {
   const handleSubmit = async (value: any) => {
     try{
       dispatch({ type: "SHOW_LOADING" })
-      const res = await axios.post('https://sypos.herokuapp.com/api/users/login', value);
+      const res = await axios.post('/api/users/login', value);
+      // const res = await axios.post('https://sypos.herokuapp.com/api/users/login', value);
       localStorage.setItem("usertoken", JSON.stringify(res.data.user));
       message.success('Logged In Successfully!')
       
