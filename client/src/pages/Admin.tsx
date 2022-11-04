@@ -1,7 +1,7 @@
 import { Table, message } from 'antd';
 import axios from 'axios';
 import { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import LayoutApp from '../components/Layout';
 import { DeleteOutlined } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';

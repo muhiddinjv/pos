@@ -15,7 +15,7 @@ import {
   import { Link, useNavigate } from 'react-router-dom';
   import './layout.css';
   import Spinner from './Spinner';
-  import jwt_decode from 'jwt-decode'
+  // import jwt_decode from 'jwt-decode'
 
 interface Props {
     children?: ReactNode
@@ -24,7 +24,7 @@ interface Props {
   const { Header, Sider, Content } = Layout;
   
 const LayoutApp: FC<Props> = ({children}) => {
-    const {cartItems, loading} = useSelector((state: any) => state.rootReducer)
+    const {cartItems, loading, currentuser} = useSelector((state: any) => state.rootReducer)
     const [collapsed, setCollapsed] = useState(false);
     const navigate = useNavigate();
 
@@ -35,9 +35,6 @@ const LayoutApp: FC<Props> = ({children}) => {
     useEffect(() => {
       localStorage.setItem('cartItems', JSON.stringify(cartItems));
     }, [cartItems]);
-
-    const usertoken: any = localStorage.getItem('usertoken');
-    const isAdmin: any = JSON.stringify(jwt_decode(usertoken));
       
     return (
       <Layout className="main-layout">
@@ -59,7 +56,7 @@ const LayoutApp: FC<Props> = ({children}) => {
             <Menu.Item key='/customers' icon={<UserSwitchOutlined/>}>
               <Link to='/customers'>Customers</Link>
             </Menu.Item>
-            {isAdmin?.includes('true') && <Menu.Item key='/admin' icon={<UserOutlined/>}>
+            {currentuser?.isAdmin && <Menu.Item key='/admin' icon={<UserOutlined/>}>
               <Link to='/admin'>Admin</Link>
             </Menu.Item>}
             <Menu.Item key='/logout' icon={<LogoutOutlined/>} onClick={()=>{

@@ -1,10 +1,13 @@
 const initialState = {
   loading: false,
   cartItems: [],
+  currentuser: [],
 };
 
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
+    case "SET_CURRENT_USER":
+      return { ...state, currentuser: action.payload };
     case "SHOW_LOADING":
       return { ...state, loading: true };
     case "HIDE_LOADING":
