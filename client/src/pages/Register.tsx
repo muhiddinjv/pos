@@ -11,7 +11,6 @@ const Register = () => {
   const navigate = useNavigate();
 
   const handleSubmit = async (value: any) => {
-    console.log('register: ',value);
     try{
       dispatch({ type: "SHOW_LOADING" })
       await axios.post('https://sypos.herokuapp.com/api/users/register', value);

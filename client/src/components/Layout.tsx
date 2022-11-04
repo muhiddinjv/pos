@@ -15,7 +15,6 @@ import {
   import { Link, useNavigate } from 'react-router-dom';
   import './layout.css';
   import Spinner from './Spinner';
-  // import jwt_decode from 'jwt-decode'
 
 interface Props {
     children?: ReactNode

@@ -8,7 +8,6 @@ const Customers = () => {
   const dispatch = useDispatch();
   const [billsData, setBillsData] = useState([]);
 
-
   const getAllCustomers = async () => {
     try{
       dispatch({ type: "SHOW_LOADING" })
