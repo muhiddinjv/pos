@@ -1,22 +1,21 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-.logo-title{
+.logo-title {
   color: white;
   margin: 15px 5px 0 5px;
-
 }
 
-.product-btn{
+.product-btn {
   margin-top: 25px;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   width: 100%;
 }
 
-.product-btn button{
+.product-btn button {
   display: block;
   margin: 0 auto;
   background: #001e28;
@@ -26,18 +25,18 @@
   border: none;
 }
 
-.product-btn button:hover{
+.product-btn button:hover {
   background-color: #fff;
   color: #001e28;
 }
 
-.ant-layout-header{
+.ant-layout-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.cart-items{
+.cart-items {
   display: flex;
   align-items: center;
   position: relative;
@@ -45,16 +44,16 @@
   cursor: pointer;
 }
 
-.ant-layout-header .anticon svg{
+.ant-layout-header .anticon svg {
   font-size: 30px;
   vertical-align: middle;
 }
 
-.cart-items span{
+.cart-items span {
   font-size: 18px;
 }
 
-.cart-badge{
+.cart-badge {
   margin-left: 5px;
   height: 28px;
   display: flex;
@@ -67,64 +66,65 @@
   border-radius: 50px;
 }
 
-.cart-minus{
+.cart-minus {
   margin-right: 10px;
   cursor: pointer;
   transition: all 0.5s;
 }
 
-.cart-plus{
+.cart-plus {
   margin-left: 10px;
   cursor: pointer;
   transition: all 0.5s;
 }
 
-.qty-btn:hover{
+.qty-btn:hover {
   border-radius: 50px;
   filter: drop-shadow(0 0 1px #001e28);
   /* background-color: #001e28; */
   color: #fff;
 }
 
-.cart-quantity{
+.cart-quantity {
   font-size: 20px;
   vertical-align: bottom;
 }
 
-.cart-action{
+.cart-action {
   cursor: pointer;
   transition: all 0.5s;
 }
 
-.cart-action:hover{
+.cart-action:hover {
   filter: drop-shadow(0 0 1px #ff0000);
   color: #fff;
 }
 
-.loading{
+.loading {
   position: absolute;
-  left: 50%; top: 25%;
+  left: 50%;
+  top: 25%;
   letter-spacing: 1.3px;
   text-align: center;
   color: #001e28;
 }
 
-.cart-edit{
+.cart-edit {
   cursor: pointer;
   transition: all 0.5s;
   margin-left: 30px;
 }
 
-.cart-edit.eye{
+.cart-edit.eye {
   margin-left: unset;
 }
 
-.cart-edit:hover{
+.cart-edit:hover {
   filter: drop-shadow(0 0 1px #0000ff);
   color: #fff;
 }
 
-.add-new{
+.add-new {
   cursor: pointer;
   display: block !important;
   padding: 8px 20px;
@@ -137,39 +137,40 @@
   border: none !important;
 }
 
-.add-new:hover{
+.add-new:hover {
   background-color: #fff !important;
   color: #001e28 !important;
 }
 
-.category{
+.category {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   margin-bottom: 50px;
 }
 
-.category-flex{
+.category-flex {
   margin: 0 30px;
   cursor: pointer;
   padding: 10px;
 }
 
-.category-active{
+.category-active {
   box-shadow: 0 0 5px #001e28;
   border-radius: 3px;
 }
 
-.category-name{
+.category-name {
   text-transform: capitalize;
 }
 
-.form{
+.form {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  padding: 0 30px;
 }
 
 .form p {
@@ -184,13 +185,15 @@
   /* outline: none; */
   border: 1px solid #999;
   padding: 20px;
+  max-width: 350px;
+  width: 100%;
 }
 
-.form-group input{
+.form-group input {
   /* border: none; */
   /* outline: none !important; */
   border: 1px solid #999;
-  width: 350px;
+  width: 100%;
 }
 
 .form-group input:focus,
@@ -204,41 +207,40 @@
   letter-spacing: 1.3px;
 }
 
-.form-other:hover{
+.form-other:hover {
   color: #001e28;
   text-decoration: underline;
 }
 
-.sub-total{
+.sub-total {
   text-align: right;
 }
 
-.logo{
+.logo {
   text-align: center;
 }
 
-.card{
+.card {
   margin: 0 15px;
 }
 
-.card-header h2{
+.card-header h2 {
   letter-spacing: 1px;
   color: #001e28;
 }
 
-.card-header span{
+.card-header span {
   display: flex;
   justify-content: center;
   color: #001e28;
   letter-spacing: 1px;
 }
 
-.card-body{
+.card-body {
   margin-top: 25px;
 }
 
-
-.card-body .group{
+.card-body .group {
   margin-top: 10px;
   display: flex;
   justify-content: space-between;
@@ -252,40 +254,40 @@
   letter-spacing: 2px;
 }
 
-.footer-card{
+.footer-card {
   margin: 10px 0;
   box-shadow: 0 0 5px #afafaf;
   padding: 5px 15px;
   border-radius: 5px;
 }
 
-.footer-card .group{
+.footer-card .group {
   display: flex;
   justify-content: space-between;
 }
 
-.footer-card_total{
+.footer-card_total {
   width: 100px;
   margin: 20px 0 0 auto;
 }
 
-.footer-card_total .group{
+.footer-card_total .group {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.footer-thanks{
+.footer-thanks {
   text-align: center;
   margin-top: 10px;
   color: #001e28;
   margin-bottom: 20px;
 }
 
-.email.success{
+.email.success {
   color: green;
 }
 
-.email.error{
+.email.error {
   color: red;
 }
