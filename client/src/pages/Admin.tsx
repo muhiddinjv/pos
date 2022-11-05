@@ -34,8 +34,7 @@ const Admin = () => {
   const handleDelete = async (user: any) => {
     try{
       dispatch({ type: "SHOW_LOADING" })
-      await axios.post('/api/users/deluser', {userId: user._id});
-      // await axios.post('https://sypos.herokuapp.com/api/users/deluser', {userId: user._id});
+      await axios.post('https://sypos.herokuapp.com/api/users/deluser', {userId: user._id});
       message.success('User Deleted successfully!')
       getAllUsers();
       dispatch({ type: "HIDE_LOADING" })     
