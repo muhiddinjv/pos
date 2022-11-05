@@ -25,6 +25,7 @@ const Login = () => {
       
       dispatch({ type: "HIDE_LOADING" })     
     } catch(error){
+      console.log('error', error)
       message.error('Incorrect input or not registered!')
     }
   }

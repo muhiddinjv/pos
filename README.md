@@ -1,6 +1,6 @@
 # (POS) Point of Sales App
 
-### Firebase Frontend [kassamiz.web.app](https://kassamiz.web.app/) & [heroku-backend](https://sypos.herokuapp.com/api/products/getproducts)
+### Firebase frontend [kassamiz.web.app](https://kassamiz.web.app/) & [heroku-backend](https://sypos.herokuapp.com/api/products/getproducts)
 
 ## How to run this app
 - In root & client directories >> `yarn` to install all the packages
